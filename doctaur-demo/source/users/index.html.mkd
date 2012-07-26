@@ -1,0 +1,12 @@
+---
+title: User
+category: users
+---
+
+# User
+
+A **User** represents a person or automated actor on GitHub. They may own and
+contribute to [repositories](#repository) and belong to zero or more
+[organizations](#organization). Users have email addresses and ssh keys, as well
+as other relevant profile data.
+

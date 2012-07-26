@@ -1,0 +1,105 @@
+@import "../globals";
+
+// Viewing someone's profile. Who they are, how to contact them, etc.
+//
+// No styleguide reference.
+section.profile{
+  h1{
+    margin:0;
+    font-size:24px;
+    color:#000;
+  }
+  p.github-username{
+    margin:0 0 15px 0;
+    font-size:14px;
+    font-weight:bold;
+  }
+
+  .big-avatar{
+    float:right;
+
+    img {
+      padding: 6px;
+      background: #fff;
+      -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
+    }
+  }
+
+  ul.contact{
+    margin:20px 0;
+
+    li{
+      list-style-type:none;
+      margin:5px 0;
+      color:#999;
+
+      a{
+        color:#666;
+      }
+
+      .pictos{
+        display:inline-block;
+        width:20px;
+
+        font-size:16px;
+        color:#bbb;
+      }
+
+      &.address div.adr {
+        margin-left: 25px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+// Editing your profile.
+section.profile{
+  input.token-display{
+    display:block;
+    width:100%;
+    padding-left:0;
+    padding-right:0;
+
+    text-align:center;
+    font-size:36px;
+    font-family:$monoFont;
+
+    background:#f1f1f1;
+  }
+
+  div.app-oauth {
+    ul li {
+      padding: 0 0 8px 0;
+      strong.app-name {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+form.blended {
+  input[name=role] {
+    width: 165px;
+    border: 1px solid #ddd;
+    background: #eee;
+    border-radius: 3px;
+    text-align: center;
+    text-shadow: 1px 1px #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    border-right-color: rgba(255,255,255,1);
+    border-bottom-color: rgba(255,255,255,1);
+
+    &.empty {
+      text-shadow: none;
+    }
+
+    &:focus {
+      text-align: left;
+      text-shadow: none;
+    }
+
+  }
+}

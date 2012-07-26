@@ -1,0 +1,86 @@
+@mixin profile-icon {
+
+}
+
+table.employees {
+  margin-top: 20px;
+  border-top: 2px solid #ccc;
+  width:100%;
+  color:#999;
+  font-size:12px;
+
+  td {
+    padding:5px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+  }
+
+  td.avatar {
+    img {
+      -webkit-border-radius:2px;
+      -moz-border-radius:2px;
+      border-radius: 2px;
+    }
+  }
+
+  td.name {
+    a {
+      font-weight:bold;
+      color:#333;
+    }
+  }
+
+  td.role {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  td.icon {
+    a, span.empty {
+      display:block;
+      width:16px;
+      height:16px;
+      text-indent:-9999px;
+      opacity:0.5;
+    }
+
+    a:hover {
+      opacity:1.0;
+    }
+
+    span.empty {
+      opacity:0.1;
+    }
+  }
+
+  td.aim {
+    a, span.empty {
+      background:url(/images/employees/aim.png) no-repeat;
+    }
+  }
+
+  td.skype {
+    a, span.empty {
+      background:url(/images/employees/skype.png) no-repeat;
+    }
+  }
+
+  td.gtalk {
+    a, span.empty {
+      background:url(/images/employees/gtalk.png) no-repeat;
+    }
+  }
+
+  td.twitter {
+    a, span.empty {
+      background:url(/images/employees/twitter.png) no-repeat;
+    }
+  }
+
+  td.email {
+    a, span.empty {
+      background:url(/images/employees/email.png) no-repeat;
+    }
+  }
+
+}

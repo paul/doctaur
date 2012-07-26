@@ -1,0 +1,677 @@
+@import "../globals";
+
+$inprogressColor: #279600;
+$helpneededColor: #d97b00;
+$abandonedColor: #d90000;
+$shippedColor: #c100b6;
+$responsibleBorderColor: #e7e7a9;
+$boxyPadding: 10px;
+$filterPadding: 8px 8px 7px 25px;
+$filterWidth: 548px - nth($filterPadding, 2) - nth($filterPadding, 4);
+
+.project-listing .project,
+.project-people {
+
+  // Who's responsible for this project?
+  &>.responsible-party {
+    margin-left: -10px;
+    width: 100%;
+    padding: 8px 10px;
+
+    background: #ffffee;
+
+    &>.avatar {
+      float: left;
+      margin-top: 2px;
+      margin-right: 8px;
+
+      img { border-radius: 3px; }
+    }
+
+    &>h4.who {
+      margin: 0;
+      font-size: 13px;
+
+      a { color:#000; }
+    }
+
+    &>p {
+      margin: 0;
+      color: #92926a;
+    }
+  }
+
+  // A nice list of who's contributing to a project. Or at least who intends
+  // on contributing.
+  &>ul.collaborators {
+    margin:12px 0 10px 0;
+
+    &>li {
+      list-style-type: none;
+      margin: 5px 0;
+      height: 21px;
+      line-height: 21px;
+
+      &>a {
+        color: #666;
+      }
+    }
+    &>li.empty,
+    &>li.empty>a {
+      color:#999;
+    }
+
+    &>li.empty .volunteer,
+    &>li .remove-button {
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: opacity;
+      -webkit-transition-duration: 200ms;
+    }
+    &>li.empty:hover .volunteer,
+    &>li:hover .remove-button {
+      opacity: 1.0;
+      visibility: visible;
+    }
+
+    &>li.error {
+      font-weight: bold;
+      color: #990000;
+    }
+
+    .avatar {
+      float: left;
+      margin-right: 6px;
+
+      img { border-radius: 2px; }
+    }
+
+    .spinner {
+      float: right;
+      margin-right: 10px;
+      opacity: 0.7;
+    }
+
+    &>li.inserter {
+      form {
+        display: inline;
+      }
+
+      input[type=text] {
+        width: 250px;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+// A listing of projects by project.
+//
+// .state-inprogress
+// .state-helpneeded
+// .state-abandoned
+//
+// No styleguide reference.
+.project-listing .project {
+  margin-bottom: 10px;
+  padding: 10px;
+
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  border-top-width: 3px;
+  border-bottom-color: #c5c5c5;
+
+  &.state-inprogress {
+    border-top-color: $inprogressColor;
+    .state { color: $inprogressColor; }
+  }
+
+  &.state-helpneeded {
+    border-top-color: $helpneededColor;
+    .state { color: $helpneededColor; }
+
+    &>h3 {
+      padding-left: 23px;
+      background: url(/images/projects/icon-helpneeded.png) 0 50% no-repeat;
+    }
+  }
+
+  &.state-abandoned {
+    border-top-color: $abandonedColor;
+    .state { color: $abandonedColor; }
+
+    &>h3 {
+      padding-left: 23px;
+      background: url(/images/projects/icon-abandoned.png) 0 50% no-repeat;
+    }
+  }
+
+  &.state-shipped {
+    border-top-color: $shippedColor;
+    .state { color: $shippedColor; }
+  }
+
+  &>h3 {
+    margin: -2px 0 10px 0;
+    font-size: 16px;
+
+    a { color: #000; }
+  }
+
+  &>.teaser {
+    margin-top: 3px;
+    max-height: 35px;
+    overflow: hidden;
+    color: #777;
+  }
+
+  &>.responsible-party {
+    border-top: 1px solid $responsibleBorderColor;
+    border-bottom: 1px solid $responsibleBorderColor;
+  }
+
+  &>.project-meta {
+    margin-bottom: -5px;
+    margin-left: -10px;
+    width: 100%;
+    padding:8px 10px 3px 10px;
+    overflow: auto;
+
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+
+    &>p {
+      margin: 0;
+      float: left;
+    }
+
+    &>.state {
+      float: right;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    &>.milestone {
+      float: right;
+      margin-top: 2px;
+      margin-left: 10px;
+    }
+  }
+}
+
+//
+// Misc stuff that needs to go elsewhere
+//
+
+.progress-bar {
+  display: block;
+  width: 120px;
+  height: 13px;
+  overflow: hidden;
+
+  @include gradient(#eee, #d9d9d9);
+  border-radius: 2px;
+
+  &>.progress {
+    float: left;
+    height: 13px;
+    @include gradient(#8dcf16, #67be10);
+  }
+}
+
+// A generic boxy looking container.
+//
+// No styleguide reference.
+.boxy {
+  margin: 10px 0;
+  padding: $boxyPadding;
+  background: #fff;
+  border: 1px solid $borderGreyColor;
+  border-bottom-color: $borderDarkerGreyColor;
+  border-radius: 4px;
+
+  &>.heading {
+    margin-left: -$boxyPadding;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 0 $boxyPadding 8px $boxyPadding;
+    border-bottom: 1px solid $borderGreyColor;
+
+    &>h2 {
+      margin: -2px 0 0 0;
+      padding: 0;
+      font-size: 14px;
+      color: #000;
+      border: none;
+    }
+
+    &>p {
+      margin: 0;
+      font-size: 13px;
+      color: #999;
+    }
+  }
+
+  &>.heading.tabs {
+    margin: -1*$boxyPadding 0 10px -1*$boxyPadding;
+    width: 100%;
+    padding: 0 $boxyPadding;
+    overflow: auto;
+
+    background: #fafafa;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+    &>li {
+      margin: 0 10px 0 0;
+      list-style-type: none;
+      float: left;
+
+      font-size: 14px;
+      font-weight: bold;
+
+      a {
+        display: block;
+        padding: 10px 10px 10px 0;
+
+        text-decoration: none;
+        color: #aaa;
+        border-right: 1px solid #ddd;
+      }
+
+      a.selected {
+        margin-left: -1*$boxyPadding;
+        padding-left: $boxyPadding;
+        color: #000;
+        background: #fff;
+      }
+
+      &:last-child a { border-right: none; }
+      &:last-child a.selected { border-right: 1px solid #ddd; }
+    }
+  }
+
+  input.filter-field {
+    width: $filterWidth;
+    padding: $filterPadding;
+
+    font-family: $bodyFont;
+    font-size: 12px;
+
+    background: url(/images/ideas/filter-icon.png) 8px 50% no-repeat #fff;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.06);
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+  }
+
+  .descriptive {
+    margin-left: -$boxyPadding;
+    width: 100%;
+    padding: 10px $boxyPadding;
+    color: #999;
+    border-bottom: 1px solid $borderGreyColor;
+
+    &>h3 {
+      margin: 0;
+      font-size: 13px;
+      color: #333;
+    }
+
+    &>p {
+      margin: 0;
+    }
+  }
+
+  p.lonely {
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+}
+
+
+//
+// View a project
+//
+
+.project-title{
+  .project-actions {
+    float: right;
+    margin-top: 3px;
+  }
+
+  h1 {
+    margin: -5px 0 0 0;
+    font-size: 24px;
+    color: #000;
+  }
+}
+
+.attach-idea {
+  ul.ideas {
+    margin: 10px 0 0 0;
+    width: 100%;
+    max-height: 400px;
+    padding: 0;
+    overflow: auto;
+
+    &>li {
+      margin: 0;
+      list-style-type: none;
+      padding: 8px 0;
+
+      font-weight: bold;
+      font-size: 12px;
+      border-top: 1px solid #eee;
+
+      &:hover {
+        color: #337797;
+      }
+
+      &:first-child {
+        border-top: none;
+      }
+
+      .button {
+        float: right;
+        margin-top: -3px;
+      }
+    }
+  }
+}
+
+.attached-idea,
+.attached-milestone {
+  .heading>h2 {
+    padding: 2px 0 2px 27px;
+    font-size: 16px;
+    background: url(/images/projects/attached.png) 0 50% no-repeat;
+  }
+
+  p.idea-preview {
+    margin-bottom: 0;
+  }
+
+  .remove-button {
+    float: right;
+    margin-top: 4px;
+  }
+}
+
+// What state is this project in? When's the last time something happened?
+//
+// No styleguide reference.
+.project-progress {
+  position: relative;
+  margin: 0 0 15px 0 ;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ddd;
+
+  &.state-inprogress {
+    border-bottom-color: $inprogressColor;
+    .state{ color: $inprogressColor; }
+  }
+  &.state-helpneeded {
+    border-bottom-color: $helpneededColor;
+    .state{ color: $helpneededColor; }
+  }
+  &.state-abandoned {
+    border-bottom-color: $abandonedColor;
+    .state{ color: $abandonedColor; }
+  }
+  &.state-shipped {
+    border-bottom-color: $shippedColor;
+    .state{ color: $shippedColor; }
+  }
+
+  &>h3 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #666;
+  }
+
+  .state {
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    padding: 0 5px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    background: #fff;
+    border-radius: 2px;
+  }
+}
+
+.project-people {
+  &>.responsible-party {
+    margin-top: -10px;
+    border-bottom: 1px solid $responsibleBorderColor;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  ul.collaborators>li.template {
+    display: none;
+  }
+}
+
+.project-milestone {
+  .find-milestone {
+    overflow: auto;
+
+    input.filter-field {
+      float: right;
+      width: $filterWidth - 150px - 10px;
+    }
+
+    input.repo-name {
+      float: left;
+    }
+  }
+
+  .new-milestone {
+    margin-top: 10px;
+
+    .spinner {
+      padding: 20px 0;
+      margin-left: 50%;
+      text-align: center;
+    }
+  }
+
+  input.repo-name {
+    width: 130px;
+    padding: $filterPadding;
+    padding-left: nth($filterPadding, 2);
+
+    font-family: $bodyFont;
+    font-size: 12px;
+
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.06);
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+  }
+
+  .milestone-title a{
+    color: #000;
+  }
+  .milestone-title .pictos {
+    position: relative;
+    top: -1px;
+    margin-right: 3px;
+
+    color: #999;
+  }
+  .milestone-description img {
+    max-width: 100%;
+  }
+
+  ul.milestones {
+    margin: 10px 0 0 -1*$boxyPadding;
+    width: 100%;
+    max-height: 240px;
+    padding: 0 $boxyPadding;
+    overflow: auto;
+    border-top: 1px solid #ddd;
+
+    &>li {
+      position: relative;
+      list-style-type: none;
+      margin: 0 0 0 -1*$boxyPadding;
+      width: 100%;
+      padding: 10px $boxyPadding;
+      border-top: 1px solid #eee;
+
+      &:first-child {
+        border-top: none;
+      }
+    }
+
+    &>li.empty, &>li.error {
+      margin-top: 13px;
+      font-size: 16px;
+      color: #999;
+      text-align: center;
+    }
+    &>li.error {
+      font-weight: bold;
+      color: #cc0000;
+    }
+
+    &>li.spinner {
+      margin-top: 20px;
+      margin-left: 50%;
+      height: 15px;
+      opacity: 0.5;
+      border: none;
+    }
+
+    &>li>.button {
+      position: absolute;
+      right: 10px;
+      top: 17px;
+      width: 40px;
+      text-align: center;
+    }
+
+    h3 {
+      margin: 0 0 0 0;
+      font-size: 13px;
+      color: #333;
+    }
+
+    p.meta {
+      float: right;
+      margin: 0 70px 0 0;
+      color: #999;
+
+      &>.open-issues {
+        margin-left: 3px;
+        padding:2px 7px;
+        font-weight: bold;
+        color: #fff;
+        background: #999;
+        border-radius: 3px;
+      }
+    }
+
+    .progress-bar {
+      margin-top: 8px;
+      clear: both;
+      width: auto;
+    }
+  }
+
+  .milestone-selector .progress-bar {
+    margin-right: 70px;
+  }
+
+  ul.issues {
+    margin: 0;
+
+    &>li {
+      list-style-type: none;
+      margin: 0 0 0 -10px;
+      width: 100%;
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    &>li:first-child {
+      margin-top: 5px;
+      border-top: 1px solid #ddd;
+    }
+    &>li:last-child {
+      border-bottom: none;
+      margin-bottom: -10px;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    .checkmark {
+      float: left;
+      margin-right: 8px;
+      display: none;
+      color: #999;
+    }
+
+    .assignee {
+      float: right;
+      margin-left: 10px;
+      font-weight: bold;
+      color: #666;
+    }
+
+    .branch {
+      float: right;
+      padding: 2px 7px 2px 21px;
+
+      color: #fff;
+      font-family: $monoFont;
+      font-size: 12px;
+
+      border-radius: 3px;
+      background: url(/images/projects/branch.png) 7px 50% no-repeat #444;
+    }
+
+    .number {
+      float: left;
+      width: 35px;
+      margin-right: 10px;
+
+      font-size: 13px;
+      color: #666;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 13px;
+      color: #000;
+
+      a { color: #000; }
+    }
+
+    .state-closed {
+      background: #f6f6f6;
+
+      .checkmark { display:block; }
+      .number { color: #aaa; }
+      .assignee { color: #aaa; }
+
+      h3 {
+        color: #888;
+        a { color: #888; }
+      }
+    }
+  }
+}
+
+.project-idea {
+  p.origin {
+    color: #999;
+  }
+}

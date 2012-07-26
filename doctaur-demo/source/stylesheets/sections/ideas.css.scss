@@ -1,0 +1,65 @@
+@import "../globals";
+
+// A listing of ideas by their titles and some sparse metadata about them.
+//
+// No styleguide reference.
+ul.idea-listing{
+  margin:15px 0;
+
+  li{
+    list-style-type:none;
+    margin:0;
+    padding:10px 0;
+
+    background:url(/images/patterns/spaced-dotted.png) 0 0 repeat-x;
+    &:first-child{ background-image:none; }
+  }
+
+  h3{
+    margin:0 0 2px 0;
+    font-size:16px;
+    a{ color:#000; }
+  }
+
+  p{
+    margin:0;
+    font-weight:300;
+    font-size:12px;
+    color:#999;
+
+    a{ color:#666; }
+
+    strong{
+      font-weight:bold;
+      color:#666;
+    }
+  }
+}
+
+.idea-body{
+  padding-bottom:10px;
+  font-size:14px;
+  background:url(/images/patterns/spaced-dotted.png) 0 100% repeat-x;
+}
+
+.idea-overview h2{
+  margin:0;
+  padding:15px 0;
+
+  font-size:16px;
+  font-weight:300;
+  color:#777;
+
+  background:url(/images/patterns/spaced-dotted.png) 0 100% repeat-x;
+  border:none;
+
+  strong{
+    font-weight:bold;
+    color:#000;
+  }
+}
+
+.idea-creator{
+  padding: 5px 0;
+  font-size: 12px;
+}

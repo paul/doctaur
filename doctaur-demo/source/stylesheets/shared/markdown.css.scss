@@ -1,0 +1,45 @@
+@import "../globals";
+
+// All content that gets run through markdown should be wrapped in a
+// <div.markdown-body> so that we can effectively control the styling of the
+// content.
+//
+// Styleguide 1.1
+.markdown-body{
+  line-height:1.4;
+
+  h1{
+    margin:0 0 -5px 0;
+    font-size:24px;
+    color:#000;
+  }
+
+  h2{
+    padding-bottom:2px;
+    font-size:16px;
+    color:#000;
+    border-bottom:1px solid #e1e1e1;
+  }
+
+  ul{
+    margin:18px 0;
+  }
+  ul li{
+    margin-bottom:5px;
+  }
+
+  img{
+    border:1px solid #ddd;
+    padding:2px;
+    background:#fff;
+    max-width:570px - 3px*2;
+  }
+
+  blockquote{
+    margin:15px 0 15px 10px;
+    padding-left:5px;
+
+    color:#999;
+    border-left:2px solid #eee;
+  }
+}

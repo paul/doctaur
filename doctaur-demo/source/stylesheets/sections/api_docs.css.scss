@@ -1,0 +1,98 @@
+@import "shared/alerts";
+
+#wrapper {
+  font-size: 15px;
+
+}
+
+nav[role="main"] {
+  .category {
+    font-weight: bold;
+    font-size: 18px;
+
+    a {
+      color: #5E5E5E;
+    }
+  }
+
+  .page {
+    font-size: 15px;
+  }
+}
+
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 18px;
+}
+h4 {
+  font-size: 16px;
+}
+
+pre, code {
+  border: 1px solid #DDD;
+  background-color: #F0F0F0;
+  padding: 1px 0.25em;
+  font-size: 13px;
+}
+
+pre {
+  width: 90%;
+  margin: 1em auto;
+  margin-bottom: 2em;
+  overflow: scroll;
+  box-shadow: #AAA 0 1px 1px inset,white 0 1px 0;
+  border-radius: 4px;
+
+
+  code {
+    border: 0;
+    background-color: transparent;
+    padding: 0
+  }
+}
+
+.notice {
+
+}
+
+
+dl.attributes {
+  font-size: 14px;
+  padding: 0 1em 0.5em 1em;
+  width: 90%;
+  margin: 1em auto;
+
+  dt {
+    font-family: $monoFont;
+    font-size: 13px;
+    position: relative;
+    left: 0;
+    top: 1.5em;
+    width: 10em;
+  }
+
+
+  dd {
+    margin: 0 0 0 11em;
+    padding: 0 0 0.5em 0.5em;
+
+    &.tags {
+      ul {
+        display: inline;
+
+        li {
+          font-size: 13px;
+          display: inline-block;
+          list-style-type: none;
+          font-style: italic;
+          margin: 0 0.5em 0 0;
+        }
+
+
+      }
+    }
+  }
+
+}

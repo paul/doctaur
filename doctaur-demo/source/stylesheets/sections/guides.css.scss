@@ -1,0 +1,46 @@
+.read-controls{
+  margin:45px 0;
+  text-align:right;
+}
+
+.guide-body{
+  padding-bottom:10px;
+  font-size:14px;
+  background:url(/images/patterns/spaced-dotted.png) 0 100% repeat-x;
+}
+
+ul.guide{
+  display: none;
+}
+
+nav[role=main]{
+  ul.guide{
+    text-transform: capitalize;
+    padding-left: 10px;
+
+    li {
+      font-weight: bold;
+
+      ul {
+        li {
+          font-weight: normal;
+          margin-left: 25px;
+          list-style: none;
+          color: #0095CA;
+          margin-top: 5px;
+        }
+
+        li a {
+          color: #999;
+        }
+
+        li.unread{
+          list-style: disc;
+          a {
+            color: #555;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import "../globals";
+
+// Where in the world is everyone? A slightly interactive map showing
+// locations of everyone.
+//
+// No styleguide reference.
+section.worldwide{
+  h1{
+    margin:0;
+
+    font-size:16px;
+    font-weight:300;
+    color:#666;
+
+    strong{
+      font-weight:bold;
+      color:#333;
+    }
+  }
+
+  .map{
+    position: relative;
+    width:570px;
+    height:285px;
+
+    background:url(/images/map/world.png) 0 0 no-repeat;
+
+    // Markers are offset such that absolutely positioning them positions
+    // the tip point where you specified. This is why there's crazy negative
+    // margins.
+    .marker{
+      position:absolute;
+      width:26px;
+      height:31px;
+      margin:-29px;
+      margin-left:-13px;
+
+      background:url(/images/map/marker.png) 0 0 no-repeat;
+    }
+  }
+}

@@ -1,0 +1,279 @@
+@import "../globals";
+
+$feedArticleGutter: 60px;
+$commitRadius: 3px;
+
+// A feed of activity items. Within a <section.feed>, there should be many
+// <article>s which are the  feed items.
+//
+//   .project-update - What someone is working on.
+//   .empty-update   - A project update without content. Dims the update.
+//   .star           - Stars given from one employee to another.
+//   .idea           - Someone posted a new idea.
+//   .idea-edit      - Someone has edited an idea.
+//
+// No styleguide reference.
+section.feed{
+
+  article{
+    padding:17px 0 16px 0;
+
+    background:url(/images/patterns/spaced-dotted.png) 0 0 repeat-x;
+    &:first-child{ background:none; }
+
+    // When did it happen? Where did it happen? How many comments? Give it
+    // a star.
+    //
+    // No styleguide reference.
+    &>ul.meta{
+      margin:-6px 0 0 0;
+
+      font-size:12px;
+      font-weight:300;
+      color:#bbb;
+
+      li{
+        list-style-type:none;
+        display:inline-block;
+        margin:0 10px 0 0;
+      }
+
+      li.give-star{
+        margin-right:7px;
+      }
+
+      a.comment, a.delete{
+        font-weight:bold;
+      }
+      a.delete{
+        color:#EE0000;
+      }
+      a.location{
+        color:#888;
+        font-style:italic;
+      }
+    }
+
+    h3 a.username{
+      border:none;
+    }
+
+    // What's someone up to?
+    //
+    // No styleguide reference.
+    &.project-update, &.comment{
+      padding-left:$feedArticleGutter;
+
+      .avatar img{
+        float:left;
+        margin-left:-$feedArticleGutter;
+
+        border-radius:3px;
+      }
+
+      h3.who{
+        margin:-4px 0 -10px 0;
+        font-size:16px;
+      }
+
+      .image{
+        text-align: center;
+        margin: 15px 0;
+        padding: 2px;
+        line-height: 0;
+        background: url(/images/main/checkbg.png);
+        border: 1px solid #ddd;
+        min-height: 119px;
+
+        .location-map{
+          cursor: pointer;
+          position: absolute;
+          display: none;
+        }
+      }
+    }
+
+    &.empty-update{
+      color:#999;
+
+      .avatar img{
+        opacity:0.6;
+      }
+
+      h3.who{
+        opacity:0.5;
+      }
+
+      &>ul.meta{ margin:-12px 0 0 0; }
+    }
+
+    // Someone's giving stars to someone for rocking it.
+    //
+    // No styleguide reference.
+    &.star{
+
+      h3{
+        margin:0 0 -10px 0;
+
+        font-size:11px;
+        font-weight:normal;
+        color:#888;
+
+        .star{
+          color:$yellowStarColor;
+        }
+
+        a{
+          color:#888;
+        }
+      }
+
+    }
+
+    // Someone's posted a new idea - let's show a little bit about it.
+    //
+    // No styleguide reference.
+    &.idea, &.project{
+      padding-left:$feedArticleGutter;
+
+      .icon{
+        float:left;
+        width:48px;
+        height:55px;
+        margin-top:5px;
+        margin-left:-$feedArticleGutter;
+
+        background:url(/images/ideas/activity-icon.png) 0 0 no-repeat;
+      }
+
+      // Who's doing what now?
+      h3{
+        margin:0 0 -10px 0;
+
+        font-size:11px;
+        font-weight:normal;
+        color:#888;
+
+        a{
+          color:#888;
+        }
+      }
+
+      // Title of the idea
+      h2{
+        margin:12px 0 -10px 0;
+
+        font-size:16px;
+        color:#000;
+        a{ color:#000; }
+      }
+
+      .excerpt{
+        margin-bottom:15px;
+        height:4.6em;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      // If the excerpt contains an image...
+      img{
+        max-width:100%
+      }
+    }
+
+    // Someone's made edits to an idea - describe what they were.
+    //
+    // No styleguide reference.
+    &.idea-edit{
+      // Who's doing what now?
+      h3{
+        margin:0 0 -10px 0;
+
+        font-size:12px;
+        font-weight:normal;
+        color:#888;
+
+        a{
+          color:#888;
+        }
+      }
+    }
+  }
+
+  // Display some commits inside of an activity item. Mostly used within
+  // idea edits.
+  //
+  // No styleguide reference.
+  ol.commits{
+    margin:15px 0;
+
+    font-size:13px;
+    font-weight:300;
+    color:#777673;
+
+    border-radius:$commitRadius;
+    border:1px solid #eee;
+    border-bottom-color:#ddd;
+    box-shadow:0 1px 3px rgba(0,0,0, 0.05);
+
+    &>li{
+      list-style-type:none;
+      margin:0;
+      padding:8px;
+
+      border-bottom:1px solid #eee;
+      border-top:1px solid #fff;
+      background:#fffdf2;
+
+      .commit-link{
+        float:right;
+        font-family:$monoFont;
+      }
+
+      .avatar img{
+        vertical-align:middle;
+        margin-top:-2px;
+        border-radius:2px;
+      }
+
+      a.username{
+        border-bottom:none;
+      }
+    }
+    &>li:first-child{
+      border-top:none;
+      border-top-left-radius: $commitRadius;
+      border-top-right-radius: $commitRadius;
+    }
+    &>li:last-child{
+      border-bottom:none;
+      border-bottom-left-radius: $commitRadius;
+      border-bottom-right-radius: $commitRadius;
+    }
+  }
+
+  // Compact comments are suitable for showing comments within a feed item.
+  //
+  // No styleguide reference.
+  .compact-comment{
+    margin-top:15px;
+    padding:0 10px;
+    overflow:auto;
+
+    font-size:11.5px;
+    border:1px solid #dde3e3;
+    background:#f3f6f6;
+
+    p.meta{
+      margin:10px 0 -10px 0;
+      color:#999;
+
+      a.username{ border-bottom:none; }
+    }
+  }
+  .compact-comment + .compact-comment{
+    margin-top:0;
+    border-top:none;
+  }
+}
+

@@ -1,0 +1,47 @@
+
+// General alert style
+.alert {
+  position: relative;
+  display: block;
+  margin: 10px 0;
+  padding: 8px 35px 8px 14px;
+
+  color: #ab823c;
+
+  background: #FCF8E3;
+  border: 1px solid #FBEED5;
+  border-radius: 4px;
+
+  &.collapsed {
+    display: none;
+  }
+
+  &>.close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #C09853;
+    cursor: pointer;
+
+    &:hover {
+      color: #cc0000 !important;
+    }
+  }
+
+  &>p {
+    margin: 0;
+  }
+  &>p+p {
+    margin-top: 10px;
+  }
+}
+
+.alert.info-alert {
+  color: #3A87AD;
+  background: #D9EDF7;
+  border-color: #BCE8F1;
+
+  &>.close {
+    color: #3A87AD;
+  }
+}

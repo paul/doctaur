@@ -1,0 +1,39 @@
+@import "../globals";
+
+// A box at the top of listings suitable for switching contexts (tabs),
+// filtering with a text field and sorting.
+//
+// No styleguide reference.
+section.listing-head {
+  margin: 0 0 15px 0;
+  padding: 5px;
+
+  background: #fff;
+  border: 1px solid $borderGreyColor;
+  border-bottom-color: $borderDarkerGreyColor;
+  border-radius: 4px;
+
+  ul.secondary-actions {
+    float: right;
+    margin: 0;
+
+    li {
+      list-style-type: none;
+      margin:0 0 0 5px;
+      float: left;
+    }
+  }
+
+  input.filter-field {
+    width: 470px;
+    padding: 8px 8px 7px 25px;
+
+    font-family: $bodyFont;
+    font-size: 12px;
+
+    background: url(/images/ideas/filter-icon.png) 8px 50% no-repeat #fff;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.06);
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+  }
+}

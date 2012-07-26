@@ -1,0 +1,45 @@
+@import "../globals";
+
+// This is a form group. Usually consisting of a label and a form element.
+//
+// Styleguide 3.1
+dl.form  {
+  margin: 15px 0;
+
+  // The label for a form group
+  dt {
+    display: block;
+    margin: 0 0 3px 0;
+    color: #888;
+
+    label {
+      font-weight: bold;
+      color: #000;
+    }
+  }
+
+  // The form element
+  dd {
+    display: block;
+    margin: 0;
+  }
+}
+
+input[type=text], input[type=password] {
+  width: 350px;
+  padding: 5px;
+
+  font-family: $bodyFont;
+  font-size: 13px;
+  color: #444;
+}
+
+textarea {
+  padding: 3px;
+  width: 98%;
+  height: 150px;
+  font-family: $bodyFont;
+  font-size: 13px;
+  color: #444;
+  border: 1px solid $borderDarkerGreyColor;
+}

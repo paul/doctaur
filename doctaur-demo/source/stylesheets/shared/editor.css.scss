@@ -1,0 +1,175 @@
+@import "../globals";
+
+
+// Author a new update or comment. Allows you to upload an image, attach your
+// location, and eventually attach a gist.
+//
+// Styleguide 3.2
+.write-post{
+  margin:0 0 15px 0;
+  @include clearfix;
+
+  form{ line-height:1px; }
+
+  textarea.editor{
+    width:652px;
+    height:60px;
+    padding:8px;
+
+    font-family:$bodyFont;
+    font-size:12px;
+
+    box-shadow:inset 2px 2px 5px rgba(0,0,0,0.06);
+    border:1px solid #e5e5e5;
+    border-bottom-color:#eee;
+  }
+
+  ul.post-attributes{
+    margin:0;
+    overflow:auto;
+
+    background:#f5f5f5;
+    border:1px solid #e5e5e5;
+    border-top:none;
+
+    a{
+      color:#bbb;
+      font-size:16px;
+
+      &:hover{
+        color:$linkColor;
+        text-decoration:none;
+      }
+
+      &.selected{
+        color:$greenColor;
+      }
+    }
+
+    li{
+      list-style-type:none;
+      float:left;
+      margin:0;
+      height:24px;
+      padding:0 7px;
+      line-height:24px;
+
+      font-size:11px;
+      color:#999;
+
+      border-right:1px solid #fff;
+      border-left:1px solid #eee;
+
+      &:first-child{ border-left:none; }
+      &:last-child{ border-right:none; }
+    }
+
+    li.post-location{
+      border-right:none;
+    }
+    li.last-location{
+      float:right;
+      border:none;
+
+      strong{
+        font-weight:normal;
+        color:#666;
+      }
+    }
+
+    .location-name{
+      position:relative;
+      top:-1px;
+      left:5px;
+    }
+    .location-name.error{
+      font-weight:bold;
+      color:#cc0000;
+    }
+  }
+
+  button{
+    margin-top:10px;
+    margin-right:10px;
+    float:left;
+  }
+  button.secondary{
+    margin-right:0;
+    float:right;
+  }
+  button.fixed {
+    width:120px
+  }
+
+  ul.post-types{
+    float:right;
+    margin:15px 0 0 0;
+
+    li{
+      list-style-type:none;
+      float:left;
+      margin:0 0 0 15px;
+
+      a{
+        font-size:12px;
+        font-weight:bold;
+        text-decoration:none;
+      }
+      a.selected{
+        color:#000;
+        cursor:default;
+      }
+    }
+  }
+}
+
+.active-only {
+  display:none;
+}
+
+.active {
+  .active-only {
+    display:block;
+  }
+  .inactive-only {
+    display:none;
+  }
+}
+
+//
+// Add a comment box
+//
+
+.write-comment {
+  @extend .write-post;
+  margin:15px 0 0 0;
+  padding:5px;
+  border:1px solid #dde3e3;
+  background:#f3f6f6;
+
+  textarea.editor{
+    width:581px;
+    height:30px;
+    font-size:11px;
+    border-color:#ddd;
+  }
+
+  button{
+    margin-top:5px;
+  }
+
+  // This version of the comment form is shown by default and expands with
+  // publish buttons when you start typing into it, so it needs some extra
+  // styles to hide things.
+  .expandable-comment-form &{
+    margin-top:0;
+    border-top:none;
+  }
+  .expandable-comment-form.collapsed &{
+    textarea.editor{
+      height:12px;
+    }
+
+    button{ display:none; }
+  }
+}

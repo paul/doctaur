@@ -1,0 +1,151 @@
+@import "globals";
+@import "plugins/reset";
+@import "sections/header";
+
+//
+// Basic type & styles
+//
+
+a{
+  color:$linkColor;
+  text-decoration:none;
+
+  &:hover{
+    text-decoration:underline;
+  }
+}
+
+a.username{
+  font-weight:bold;
+  color:#333;
+  border-bottom:1px dotted rgba(0,0,0,0.3);
+
+  &:hover{
+    border-bottom:none;
+  }
+}
+
+.pictos{
+  font-family: 'Pictos';
+  font-weight: normal !important;
+   -webkit-font-smoothing: antialiased;
+}
+
+img.emoji {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+h2{
+  padding-bottom:2px;
+  font-size:16px;
+  color:#000;
+  border-bottom:1px solid #e1e1e1;
+}
+h2.section-separator{
+  clear:both;
+  margin:0;
+  padding:15px 0;
+
+  font-size:16px;
+
+  background:url(/images/patterns/spaced-dotted.png) 0 100% repeat-x;
+  border:none;
+}
+
+h3.image-supported-header img{
+  width: 24px;
+  vertical-align:text-bottom;
+}
+
+strong.highlight {
+  background-color: #ffff00;
+  padding: 0 2px;
+}
+
+//
+// Main Layout
+//
+
+body{
+  padding-bottom:50px;
+
+  font-family:$bodyFont;
+  font-size:13px;
+  line-height:1.4;
+  color:#5e5e5e;
+
+  background:url(/images/main/background.png);
+}
+
+#wrapper{
+  margin:0 auto;
+  padding-left:$navWidth + $gutterWidth;
+  width:$mainWidth;
+}
+
+nav[role=main]{
+  float:left;
+  margin-left: -($navWidth + $gutterWidth);
+  width:$navWidth;
+
+  .new{
+    background-color:$linkColor;
+    color:#fff;
+  }
+
+  .visible {
+    display: block;
+  }
+}
+
+nav[role=main] h3{
+  margin-bottom:20px;
+  font-weight:normal;
+  font-size:14px;
+  cursor: pointer;
+  color: #888;
+
+  span{
+    float:right;
+    background-color:#eee;
+    border-radius:4px;
+    padding:2px 7px;
+    font-size:12px;
+  }
+}
+
+nav[role=main] ul{
+  margin:0;
+
+  font-weight:300;
+  font-size:14px;
+
+  li{
+    list-style-type:none;
+    margin:0 0 20px 0;
+
+    a{
+      color:#888;
+      text-decoration:none;
+
+      &.selected{
+        font-weight:bold;
+        color:#000;
+      }
+    }
+
+    li{
+      margin: 0 0 0 10px;
+      font-size: 12px;
+    }
+  }
+}
+
+.pullr {
+  float: right;
+}
+
+@import "sections/api_docs";

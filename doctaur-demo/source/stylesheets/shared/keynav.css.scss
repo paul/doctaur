@@ -1,0 +1,21 @@
+@import "../globals";
+
+.keynav{
+  position:relative;
+  float:right;
+  width:$mainWidth;
+  padding-left:9px;
+  border-left:1px solid #eee;
+
+  .keynav-indicator{
+    position:absolute;
+    width:2px;
+    left:-2px;
+
+    // top & height are defined by javascript
+    top:0;
+    height:0;
+
+    background:#65829b;
+  }
+}

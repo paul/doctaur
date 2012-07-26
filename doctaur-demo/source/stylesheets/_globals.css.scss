@@ -1,0 +1,50 @@
+// Contains all the global colors, widths and other variables & functions used
+// throughout the app. There shouldn't be any actual CSS in this file.
+
+$mainWidth: 670px;
+$navWidth: 200px;
+$gutterWidth: 20px;
+$fullWidth: $mainWidth + $navWidth + $gutterWidth;
+
+$linkColor: #0095ca;
+$greenColor: #74bb5a;
+$yellowStarColor: #ffba00;
+
+// Suitable for light grey borders on to of the background texture
+$borderGreyColor: #e5e5e5;
+$borderDarkerGreyColor: #d5d5d5;
+
+$bodyFont: "Helvetica Neue", Helvetica;
+$monoFont: "Inconsolata", "Menlo", monospace;
+
+//
+// Mixins
+//
+
+// A clearfix suitable for modern browsers.
+//
+// Compatibility untested.
+@mixin clearfix{
+  &:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+  }
+  display:inline-block;
+  display: block;
+}
+
+// Creates a linear gradient background, from top to bottom.
+//
+// $start - The color hex at the top.
+// $end   - The color hex at the bottom.
+//
+// Compatibility untested.
+@mixin gradient($start, $end){
+  background:$start;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
+  background:-webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background:-moz-linear-gradient(top,  $start,  $end);
+}
