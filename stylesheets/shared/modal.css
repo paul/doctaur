@@ -1,0 +1,9 @@
+/* line 1, shared/modal.css.scss */
+.modal {
+  width: 500px; }
+  /* line 5, shared/modal.css.scss */
+  .modal h2 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border: none; }

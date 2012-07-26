@@ -1,0 +1,34 @@
+/* line 6, shared/forms.css.scss */
+dl.form {
+  margin: 15px 0; }
+  /* line 10, shared/forms.css.scss */
+  dl.form dt {
+    display: block;
+    margin: 0 0 3px 0;
+    color: #888; }
+    /* line 15, shared/forms.css.scss */
+    dl.form dt label {
+      font-weight: bold;
+      color: #000; }
+  /* line 22, shared/forms.css.scss */
+  dl.form dd {
+    display: block;
+    margin: 0; }
+
+/* line 28, shared/forms.css.scss */
+input[type=text], input[type=password] {
+  width: 350px;
+  padding: 5px;
+  font-family: "Helvetica Neue", Helvetica;
+  font-size: 13px;
+  color: #444; }
+
+/* line 37, shared/forms.css.scss */
+textarea {
+  padding: 3px;
+  width: 98%;
+  height: 150px;
+  font-family: "Helvetica Neue", Helvetica;
+  font-size: 13px;
+  color: #444;
+  border: 1px solid #d5d5d5; }

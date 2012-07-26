@@ -1,0 +1,77 @@
+/* line 7, sections/profile.css.scss */
+section.profile h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #000; }
+/* line 12, sections/profile.css.scss */
+section.profile p.github-username {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  font-weight: bold; }
+/* line 18, sections/profile.css.scss */
+section.profile .big-avatar {
+  float: right; }
+  /* line 21, sections/profile.css.scss */
+  section.profile .big-avatar img {
+    padding: 6px;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
+/* line 28, sections/profile.css.scss */
+section.profile ul.contact {
+  margin: 20px 0; }
+  /* line 31, sections/profile.css.scss */
+  section.profile ul.contact li {
+    list-style-type: none;
+    margin: 5px 0;
+    color: #999; }
+    /* line 36, sections/profile.css.scss */
+    section.profile ul.contact li a {
+      color: #666; }
+    /* line 40, sections/profile.css.scss */
+    section.profile ul.contact li .pictos {
+      display: inline-block;
+      width: 20px;
+      font-size: 16px;
+      color: #bbb; }
+    /* line 48, sections/profile.css.scss */
+    section.profile ul.contact li.address div.adr {
+      margin-left: 25px;
+      color: #666;
+      margin-bottom: 20px; }
+
+/* line 59, sections/profile.css.scss */
+section.profile input.token-display {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  font-size: 36px;
+  font-family: "Inconsolata", "Menlo", monospace;
+  background: #f1f1f1; }
+/* line 73, sections/profile.css.scss */
+section.profile div.app-oauth ul li {
+  padding: 0 0 8px 0; }
+  /* line 75, sections/profile.css.scss */
+  section.profile div.app-oauth ul li strong.app-name {
+    font-size: 14px;
+    font-weight: bold; }
+
+/* line 84, sections/profile.css.scss */
+form.blended input[name=role] {
+  width: 165px;
+  border: 1px solid #ddd;
+  background: #eee;
+  border-radius: 3px;
+  text-align: center;
+  text-shadow: 1px 1px #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  border-right-color: white;
+  border-bottom-color: white; }
+  /* line 95, sections/profile.css.scss */
+  form.blended input[name=role].empty {
+    text-shadow: none; }
+  /* line 99, sections/profile.css.scss */
+  form.blended input[name=role]:focus {
+    text-align: left;
+    text-shadow: none; }

@@ -1,0 +1,38 @@
+/* line 1, sections/guides.css.scss */
+.read-controls {
+  margin: 45px 0;
+  text-align: right; }
+
+/* line 6, sections/guides.css.scss */
+.guide-body {
+  padding-bottom: 10px;
+  font-size: 14px;
+  background: url(/images/patterns/spaced-dotted.png) 0 100% repeat-x; }
+
+/* line 12, sections/guides.css.scss */
+ul.guide {
+  display: none; }
+
+/* line 17, sections/guides.css.scss */
+nav[role=main] ul.guide {
+  text-transform: capitalize;
+  padding-left: 10px; }
+  /* line 21, sections/guides.css.scss */
+  nav[role=main] ul.guide li {
+    font-weight: bold; }
+    /* line 25, sections/guides.css.scss */
+    nav[role=main] ul.guide li ul li {
+      font-weight: normal;
+      margin-left: 25px;
+      list-style: none;
+      color: #0095CA;
+      margin-top: 5px; }
+    /* line 33, sections/guides.css.scss */
+    nav[role=main] ul.guide li ul li a {
+      color: #999; }
+    /* line 37, sections/guides.css.scss */
+    nav[role=main] ul.guide li ul li.unread {
+      list-style: disc; }
+      /* line 39, sections/guides.css.scss */
+      nav[role=main] ul.guide li ul li.unread a {
+        color: #555; }

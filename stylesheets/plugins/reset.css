@@ -1,0 +1,28 @@
+/* line 5, plugins/reset.css.scss */
+* {
+  padding: 0;
+  margin: 0; }
+
+/* line 9, plugins/reset.css.scss */
+h1, h2, h3, h4, h5, h6, p, pre, blockquote, label, ul, ol, dl, fieldset, address {
+  margin: 1em 0; }
+
+/* line 10, plugins/reset.css.scss */
+li, dd {
+  margin-left: 5%; }
+
+/* line 11, plugins/reset.css.scss */
+fieldset {
+  padding: .5em; }
+
+/* line 12, plugins/reset.css.scss */
+select option {
+  padding: 0 5px; }
+
+/* line 14, plugins/reset.css.scss */
+a {
+  outline: none; }
+
+/* line 15, plugins/reset.css.scss */
+a img {
+  border: none; }

@@ -1,0 +1,53 @@
+/* line 5, sections/employees.css.scss */
+table.employees {
+  margin-top: 20px;
+  border-top: 2px solid #ccc;
+  width: 100%;
+  color: #999;
+  font-size: 12px; }
+  /* line 12, sections/employees.css.scss */
+  table.employees td {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap; }
+  /* line 19, sections/employees.css.scss */
+  table.employees td.avatar img {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px; }
+  /* line 27, sections/employees.css.scss */
+  table.employees td.name a {
+    font-weight: bold;
+    color: #333; }
+  /* line 33, sections/employees.css.scss */
+  table.employees td.role {
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  /* line 39, sections/employees.css.scss */
+  table.employees td.icon a, table.employees td.icon span.empty {
+    display: block;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    opacity: 0.5; }
+  /* line 47, sections/employees.css.scss */
+  table.employees td.icon a:hover {
+    opacity: 1.0; }
+  /* line 51, sections/employees.css.scss */
+  table.employees td.icon span.empty {
+    opacity: 0.1; }
+  /* line 57, sections/employees.css.scss */
+  table.employees td.aim a, table.employees td.aim span.empty {
+    background: url(/images/employees/aim.png) no-repeat; }
+  /* line 63, sections/employees.css.scss */
+  table.employees td.skype a, table.employees td.skype span.empty {
+    background: url(/images/employees/skype.png) no-repeat; }
+  /* line 69, sections/employees.css.scss */
+  table.employees td.gtalk a, table.employees td.gtalk span.empty {
+    background: url(/images/employees/gtalk.png) no-repeat; }
+  /* line 75, sections/employees.css.scss */
+  table.employees td.twitter a, table.employees td.twitter span.empty {
+    background: url(/images/employees/twitter.png) no-repeat; }
+  /* line 81, sections/employees.css.scss */
+  table.employees td.email a, table.employees td.email span.empty {
+    background: url(/images/employees/email.png) no-repeat; }

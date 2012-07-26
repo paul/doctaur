@@ -1,0 +1,27 @@
+/* line 7, shared/listings.css.scss */
+section.listing-head {
+  margin: 0 0 15px 0;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-bottom-color: #d5d5d5;
+  border-radius: 4px; }
+  /* line 16, shared/listings.css.scss */
+  section.listing-head ul.secondary-actions {
+    float: right;
+    margin: 0; }
+    /* line 20, shared/listings.css.scss */
+    section.listing-head ul.secondary-actions li {
+      list-style-type: none;
+      margin: 0 0 0 5px;
+      float: left; }
+  /* line 27, shared/listings.css.scss */
+  section.listing-head input.filter-field {
+    width: 470px;
+    padding: 8px 8px 7px 25px;
+    font-family: "Helvetica Neue", Helvetica;
+    font-size: 12px;
+    background: url(/images/ideas/filter-icon.png) 8px 50% no-repeat white;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e5e5;
+    border-radius: 3px; }

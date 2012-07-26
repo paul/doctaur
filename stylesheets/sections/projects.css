@@ -1,0 +1,586 @@
+/* line 16, sections/projects.css.scss */
+.project-listing .project > .responsible-party,
+.project-people > .responsible-party {
+  margin-left: -10px;
+  width: 100%;
+  padding: 8px 10px;
+  background: #ffffee; }
+  /* line 23, sections/projects.css.scss */
+  .project-listing .project > .responsible-party > .avatar,
+  .project-people > .responsible-party > .avatar {
+    float: left;
+    margin-top: 2px;
+    margin-right: 8px; }
+    /* line 28, sections/projects.css.scss */
+    .project-listing .project > .responsible-party > .avatar img,
+    .project-people > .responsible-party > .avatar img {
+      border-radius: 3px; }
+  /* line 31, sections/projects.css.scss */
+  .project-listing .project > .responsible-party > h4.who,
+  .project-people > .responsible-party > h4.who {
+    margin: 0;
+    font-size: 13px; }
+    /* line 35, sections/projects.css.scss */
+    .project-listing .project > .responsible-party > h4.who a,
+    .project-people > .responsible-party > h4.who a {
+      color: #000; }
+  /* line 38, sections/projects.css.scss */
+  .project-listing .project > .responsible-party > p,
+  .project-people > .responsible-party > p {
+    margin: 0;
+    color: #92926a; }
+/* line 46, sections/projects.css.scss */
+.project-listing .project > ul.collaborators,
+.project-people > ul.collaborators {
+  margin: 12px 0 10px 0; }
+  /* line 49, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators > li,
+  .project-people > ul.collaborators > li {
+    list-style-type: none;
+    margin: 5px 0;
+    height: 21px;
+    line-height: 21px; }
+    /* line 55, sections/projects.css.scss */
+    .project-listing .project > ul.collaborators > li > a,
+    .project-people > ul.collaborators > li > a {
+      color: #666; }
+  /* line 60, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators > li.empty, .project-listing .project > ul.collaborators > li.empty > a,
+  .project-people > ul.collaborators > li.empty,
+  .project-people > ul.collaborators > li.empty > a {
+    color: #999; }
+  /* line 65, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators > li.empty .volunteer, .project-listing .project > ul.collaborators > li .remove-button,
+  .project-people > ul.collaborators > li.empty .volunteer,
+  .project-people > ul.collaborators > li .remove-button {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity;
+    -webkit-transition-duration: 200ms; }
+  /* line 72, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators > li.empty:hover .volunteer, .project-listing .project > ul.collaborators > li:hover .remove-button,
+  .project-people > ul.collaborators > li.empty:hover .volunteer,
+  .project-people > ul.collaborators > li:hover .remove-button {
+    opacity: 1.0;
+    visibility: visible; }
+  /* line 77, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators > li.error,
+  .project-people > ul.collaborators > li.error {
+    font-weight: bold;
+    color: #990000; }
+  /* line 82, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators .avatar,
+  .project-people > ul.collaborators .avatar {
+    float: left;
+    margin-right: 6px; }
+    /* line 86, sections/projects.css.scss */
+    .project-listing .project > ul.collaborators .avatar img,
+    .project-people > ul.collaborators .avatar img {
+      border-radius: 2px; }
+  /* line 89, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators .spinner,
+  .project-people > ul.collaborators .spinner {
+    float: right;
+    margin-right: 10px;
+    opacity: 0.7; }
+  /* line 96, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators > li.inserter form,
+  .project-people > ul.collaborators > li.inserter form {
+    display: inline; }
+  /* line 100, sections/projects.css.scss */
+  .project-listing .project > ul.collaborators > li.inserter input[type=text],
+  .project-people > ul.collaborators > li.inserter input[type=text] {
+    width: 250px;
+    font-size: 11px; }
+
+/* line 115, sections/projects.css.scss */
+.project-listing .project {
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  border-top-width: 3px;
+  border-bottom-color: #c5c5c5; }
+  /* line 125, sections/projects.css.scss */
+  .project-listing .project.state-inprogress {
+    border-top-color: #279600; }
+    /* line 127, sections/projects.css.scss */
+    .project-listing .project.state-inprogress .state {
+      color: #279600; }
+  /* line 130, sections/projects.css.scss */
+  .project-listing .project.state-helpneeded {
+    border-top-color: #d97b00; }
+    /* line 132, sections/projects.css.scss */
+    .project-listing .project.state-helpneeded .state {
+      color: #d97b00; }
+    /* line 134, sections/projects.css.scss */
+    .project-listing .project.state-helpneeded > h3 {
+      padding-left: 23px;
+      background: url(/images/projects/icon-helpneeded.png) 0 50% no-repeat; }
+  /* line 140, sections/projects.css.scss */
+  .project-listing .project.state-abandoned {
+    border-top-color: #d90000; }
+    /* line 142, sections/projects.css.scss */
+    .project-listing .project.state-abandoned .state {
+      color: #d90000; }
+    /* line 144, sections/projects.css.scss */
+    .project-listing .project.state-abandoned > h3 {
+      padding-left: 23px;
+      background: url(/images/projects/icon-abandoned.png) 0 50% no-repeat; }
+  /* line 150, sections/projects.css.scss */
+  .project-listing .project.state-shipped {
+    border-top-color: #c100b6; }
+    /* line 152, sections/projects.css.scss */
+    .project-listing .project.state-shipped .state {
+      color: #c100b6; }
+  /* line 155, sections/projects.css.scss */
+  .project-listing .project > h3 {
+    margin: -2px 0 10px 0;
+    font-size: 16px; }
+    /* line 159, sections/projects.css.scss */
+    .project-listing .project > h3 a {
+      color: #000; }
+  /* line 162, sections/projects.css.scss */
+  .project-listing .project > .teaser {
+    margin-top: 3px;
+    max-height: 35px;
+    overflow: hidden;
+    color: #777; }
+  /* line 169, sections/projects.css.scss */
+  .project-listing .project > .responsible-party {
+    border-top: 1px solid #e7e7a9;
+    border-bottom: 1px solid #e7e7a9; }
+  /* line 174, sections/projects.css.scss */
+  .project-listing .project > .project-meta {
+    margin-bottom: -5px;
+    margin-left: -10px;
+    width: 100%;
+    padding: 8px 10px 3px 10px;
+    overflow: auto;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee; }
+    /* line 185, sections/projects.css.scss */
+    .project-listing .project > .project-meta > p {
+      margin: 0;
+      float: left; }
+    /* line 190, sections/projects.css.scss */
+    .project-listing .project > .project-meta > .state {
+      float: right;
+      margin-left: 10px;
+      font-weight: bold; }
+    /* line 196, sections/projects.css.scss */
+    .project-listing .project > .project-meta > .milestone {
+      float: right;
+      margin-top: 2px;
+      margin-left: 10px; }
+
+/* line 208, sections/projects.css.scss */
+.progress-bar {
+  display: block;
+  width: 120px;
+  height: 13px;
+  overflow: hidden;
+  background: #eeeeee;
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
+  background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#d9d9d9));
+  background: -moz-linear-gradient(top, #eeeeee, #d9d9d9);
+  border-radius: 2px; }
+  /* line 217, sections/projects.css.scss */
+  .progress-bar > .progress {
+    float: left;
+    height: 13px;
+    background: #8dcf16;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start', endColorstr='$end');
+    background: -webkit-gradient(linear, left top, left bottom, from(#8dcf16), to(#67be10));
+    background: -moz-linear-gradient(top, #8dcf16, #67be10); }
+
+/* line 227, sections/projects.css.scss */
+.boxy {
+  margin: 10px 0;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-bottom-color: #d5d5d5;
+  border-radius: 4px; }
+  /* line 235, sections/projects.css.scss */
+  .boxy > .heading {
+    margin-left: -10px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 0 10px 8px 10px;
+    border-bottom: 1px solid #e5e5e5; }
+    /* line 242, sections/projects.css.scss */
+    .boxy > .heading > h2 {
+      margin: -2px 0 0 0;
+      padding: 0;
+      font-size: 14px;
+      color: #000;
+      border: none; }
+    /* line 250, sections/projects.css.scss */
+    .boxy > .heading > p {
+      margin: 0;
+      font-size: 13px;
+      color: #999; }
+  /* line 257, sections/projects.css.scss */
+  .boxy > .heading.tabs {
+    margin: -10px 0 10px -10px;
+    width: 100%;
+    padding: 0 10px;
+    overflow: auto;
+    background: #fafafa;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px; }
+    /* line 267, sections/projects.css.scss */
+    .boxy > .heading.tabs > li {
+      margin: 0 10px 0 0;
+      list-style-type: none;
+      float: left;
+      font-size: 14px;
+      font-weight: bold; }
+      /* line 275, sections/projects.css.scss */
+      .boxy > .heading.tabs > li a {
+        display: block;
+        padding: 10px 10px 10px 0;
+        text-decoration: none;
+        color: #aaa;
+        border-right: 1px solid #ddd; }
+      /* line 284, sections/projects.css.scss */
+      .boxy > .heading.tabs > li a.selected {
+        margin-left: -10px;
+        padding-left: 10px;
+        color: #000;
+        background: #fff; }
+      /* line 291, sections/projects.css.scss */
+      .boxy > .heading.tabs > li:last-child a {
+        border-right: none; }
+      /* line 292, sections/projects.css.scss */
+      .boxy > .heading.tabs > li:last-child a.selected {
+        border-right: 1px solid #ddd; }
+  /* line 296, sections/projects.css.scss */
+  .boxy input.filter-field {
+    width: 515px;
+    padding: 8px 8px 7px 25px;
+    font-family: "Helvetica Neue", Helvetica;
+    font-size: 12px;
+    background: url(/images/ideas/filter-icon.png) 8px 50% no-repeat white;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e5e5;
+    border-radius: 3px; }
+  /* line 309, sections/projects.css.scss */
+  .boxy .descriptive {
+    margin-left: -10px;
+    width: 100%;
+    padding: 10px 10px;
+    color: #999;
+    border-bottom: 1px solid #e5e5e5; }
+    /* line 316, sections/projects.css.scss */
+    .boxy .descriptive > h3 {
+      margin: 0;
+      font-size: 13px;
+      color: #333; }
+    /* line 322, sections/projects.css.scss */
+    .boxy .descriptive > p {
+      margin: 0; }
+  /* line 327, sections/projects.css.scss */
+  .boxy p.lonely {
+    margin-bottom: 0;
+    font-size: 14px; }
+
+/* line 339, sections/projects.css.scss */
+.project-title .project-actions {
+  float: right;
+  margin-top: 3px; }
+/* line 344, sections/projects.css.scss */
+.project-title h1 {
+  margin: -5px 0 0 0;
+  font-size: 24px;
+  color: #000; }
+
+/* line 352, sections/projects.css.scss */
+.attach-idea ul.ideas {
+  margin: 10px 0 0 0;
+  width: 100%;
+  max-height: 400px;
+  padding: 0;
+  overflow: auto; }
+  /* line 359, sections/projects.css.scss */
+  .attach-idea ul.ideas > li {
+    margin: 0;
+    list-style-type: none;
+    padding: 8px 0;
+    font-weight: bold;
+    font-size: 12px;
+    border-top: 1px solid #eee; }
+    /* line 368, sections/projects.css.scss */
+    .attach-idea ul.ideas > li:hover {
+      color: #337797; }
+    /* line 372, sections/projects.css.scss */
+    .attach-idea ul.ideas > li:first-child {
+      border-top: none; }
+    /* line 376, sections/projects.css.scss */
+    .attach-idea ul.ideas > li .button {
+      float: right;
+      margin-top: -3px; }
+
+/* line 386, sections/projects.css.scss */
+.attached-idea .heading > h2,
+.attached-milestone .heading > h2 {
+  padding: 2px 0 2px 27px;
+  font-size: 16px;
+  background: url(/images/projects/attached.png) 0 50% no-repeat; }
+/* line 392, sections/projects.css.scss */
+.attached-idea p.idea-preview,
+.attached-milestone p.idea-preview {
+  margin-bottom: 0; }
+/* line 396, sections/projects.css.scss */
+.attached-idea .remove-button,
+.attached-milestone .remove-button {
+  float: right;
+  margin-top: 4px; }
+
+/* line 405, sections/projects.css.scss */
+.project-progress {
+  position: relative;
+  margin: 0 0 15px 0;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ddd; }
+  /* line 411, sections/projects.css.scss */
+  .project-progress.state-inprogress {
+    border-bottom-color: #279600; }
+    /* line 413, sections/projects.css.scss */
+    .project-progress.state-inprogress .state {
+      color: #279600; }
+  /* line 415, sections/projects.css.scss */
+  .project-progress.state-helpneeded {
+    border-bottom-color: #d97b00; }
+    /* line 417, sections/projects.css.scss */
+    .project-progress.state-helpneeded .state {
+      color: #d97b00; }
+  /* line 419, sections/projects.css.scss */
+  .project-progress.state-abandoned {
+    border-bottom-color: #d90000; }
+    /* line 421, sections/projects.css.scss */
+    .project-progress.state-abandoned .state {
+      color: #d90000; }
+  /* line 423, sections/projects.css.scss */
+  .project-progress.state-shipped {
+    border-bottom-color: #c100b6; }
+    /* line 425, sections/projects.css.scss */
+    .project-progress.state-shipped .state {
+      color: #c100b6; }
+  /* line 428, sections/projects.css.scss */
+  .project-progress > h3 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #666; }
+  /* line 435, sections/projects.css.scss */
+  .project-progress .state {
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    padding: 0 5px;
+    font-size: 11px;
+    font-weight: bold;
+    background: #fff;
+    border-radius: 2px; }
+
+/* line 450, sections/projects.css.scss */
+.project-people > .responsible-party {
+  margin-top: -10px;
+  border-bottom: 1px solid #e7e7a9;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px; }
+/* line 457, sections/projects.css.scss */
+.project-people ul.collaborators > li.template {
+  display: none; }
+
+/* line 463, sections/projects.css.scss */
+.project-milestone .find-milestone {
+  overflow: auto; }
+  /* line 466, sections/projects.css.scss */
+  .project-milestone .find-milestone input.filter-field {
+    float: right;
+    width: 355px; }
+  /* line 471, sections/projects.css.scss */
+  .project-milestone .find-milestone input.repo-name {
+    float: left; }
+/* line 476, sections/projects.css.scss */
+.project-milestone .new-milestone {
+  margin-top: 10px; }
+  /* line 479, sections/projects.css.scss */
+  .project-milestone .new-milestone .spinner {
+    padding: 20px 0;
+    margin-left: 50%;
+    text-align: center; }
+/* line 486, sections/projects.css.scss */
+.project-milestone input.repo-name {
+  width: 130px;
+  padding: 8px 8px 7px 25px;
+  padding-left: 8px;
+  font-family: "Helvetica Neue", Helvetica;
+  font-size: 12px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e5e5;
+  border-radius: 3px; }
+/* line 499, sections/projects.css.scss */
+.project-milestone .milestone-title a {
+  color: #000; }
+/* line 502, sections/projects.css.scss */
+.project-milestone .milestone-title .pictos {
+  position: relative;
+  top: -1px;
+  margin-right: 3px;
+  color: #999; }
+/* line 509, sections/projects.css.scss */
+.project-milestone .milestone-description img {
+  max-width: 100%; }
+/* line 513, sections/projects.css.scss */
+.project-milestone ul.milestones {
+  margin: 10px 0 0 -10px;
+  width: 100%;
+  max-height: 240px;
+  padding: 0 10px;
+  overflow: auto;
+  border-top: 1px solid #ddd; }
+  /* line 521, sections/projects.css.scss */
+  .project-milestone ul.milestones > li {
+    position: relative;
+    list-style-type: none;
+    margin: 0 0 0 -10px;
+    width: 100%;
+    padding: 10px 10px;
+    border-top: 1px solid #eee; }
+    /* line 529, sections/projects.css.scss */
+    .project-milestone ul.milestones > li:first-child {
+      border-top: none; }
+  /* line 534, sections/projects.css.scss */
+  .project-milestone ul.milestones > li.empty, .project-milestone ul.milestones > li.error {
+    margin-top: 13px;
+    font-size: 16px;
+    color: #999;
+    text-align: center; }
+  /* line 540, sections/projects.css.scss */
+  .project-milestone ul.milestones > li.error {
+    font-weight: bold;
+    color: #cc0000; }
+  /* line 545, sections/projects.css.scss */
+  .project-milestone ul.milestones > li.spinner {
+    margin-top: 20px;
+    margin-left: 50%;
+    height: 15px;
+    opacity: 0.5;
+    border: none; }
+  /* line 553, sections/projects.css.scss */
+  .project-milestone ul.milestones > li > .button {
+    position: absolute;
+    right: 10px;
+    top: 17px;
+    width: 40px;
+    text-align: center; }
+  /* line 561, sections/projects.css.scss */
+  .project-milestone ul.milestones h3 {
+    margin: 0 0 0 0;
+    font-size: 13px;
+    color: #333; }
+  /* line 567, sections/projects.css.scss */
+  .project-milestone ul.milestones p.meta {
+    float: right;
+    margin: 0 70px 0 0;
+    color: #999; }
+    /* line 572, sections/projects.css.scss */
+    .project-milestone ul.milestones p.meta > .open-issues {
+      margin-left: 3px;
+      padding: 2px 7px;
+      font-weight: bold;
+      color: #fff;
+      background: #999;
+      border-radius: 3px; }
+  /* line 582, sections/projects.css.scss */
+  .project-milestone ul.milestones .progress-bar {
+    margin-top: 8px;
+    clear: both;
+    width: auto; }
+/* line 589, sections/projects.css.scss */
+.project-milestone .milestone-selector .progress-bar {
+  margin-right: 70px; }
+/* line 593, sections/projects.css.scss */
+.project-milestone ul.issues {
+  margin: 0; }
+  /* line 596, sections/projects.css.scss */
+  .project-milestone ul.issues > li {
+    list-style-type: none;
+    margin: 0 0 0 -10px;
+    width: 100%;
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee; }
+  /* line 604, sections/projects.css.scss */
+  .project-milestone ul.issues > li:first-child {
+    margin-top: 5px;
+    border-top: 1px solid #ddd; }
+  /* line 608, sections/projects.css.scss */
+  .project-milestone ul.issues > li:last-child {
+    border-bottom: none;
+    margin-bottom: -10px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px; }
+  /* line 615, sections/projects.css.scss */
+  .project-milestone ul.issues .checkmark {
+    float: left;
+    margin-right: 8px;
+    display: none;
+    color: #999; }
+  /* line 622, sections/projects.css.scss */
+  .project-milestone ul.issues .assignee {
+    float: right;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #666; }
+  /* line 629, sections/projects.css.scss */
+  .project-milestone ul.issues .branch {
+    float: right;
+    padding: 2px 7px 2px 21px;
+    color: #fff;
+    font-family: "Inconsolata", "Menlo", monospace;
+    font-size: 12px;
+    border-radius: 3px;
+    background: url(/images/projects/branch.png) 7px 50% no-repeat #444444; }
+  /* line 641, sections/projects.css.scss */
+  .project-milestone ul.issues .number {
+    float: left;
+    width: 35px;
+    margin-right: 10px;
+    font-size: 13px;
+    color: #666; }
+  /* line 650, sections/projects.css.scss */
+  .project-milestone ul.issues h3 {
+    margin: 0;
+    font-size: 13px;
+    color: #000; }
+    /* line 655, sections/projects.css.scss */
+    .project-milestone ul.issues h3 a {
+      color: #000; }
+  /* line 658, sections/projects.css.scss */
+  .project-milestone ul.issues .state-closed {
+    background: #f6f6f6; }
+    /* line 661, sections/projects.css.scss */
+    .project-milestone ul.issues .state-closed .checkmark {
+      display: block; }
+    /* line 662, sections/projects.css.scss */
+    .project-milestone ul.issues .state-closed .number {
+      color: #aaa; }
+    /* line 663, sections/projects.css.scss */
+    .project-milestone ul.issues .state-closed .assignee {
+      color: #aaa; }
+    /* line 665, sections/projects.css.scss */
+    .project-milestone ul.issues .state-closed h3 {
+      color: #888; }
+      /* line 667, sections/projects.css.scss */
+      .project-milestone ul.issues .state-closed h3 a {
+        color: #888; }
+
+/* line 674, sections/projects.css.scss */
+.project-idea p.origin {
+  color: #999; }

@@ -1,0 +1,38 @@
+/* line 3, shared/alerts.css.scss */
+.alert {
+  position: relative;
+  display: block;
+  margin: 10px 0;
+  padding: 8px 35px 8px 14px;
+  color: #ab823c;
+  background: #FCF8E3;
+  border: 1px solid #FBEED5;
+  border-radius: 4px; }
+  /* line 15, shared/alerts.css.scss */
+  .alert.collapsed {
+    display: none; }
+  /* line 19, shared/alerts.css.scss */
+  .alert > .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #C09853;
+    cursor: pointer; }
+    /* line 26, shared/alerts.css.scss */
+    .alert > .close:hover {
+      color: #cc0000 !important; }
+  /* line 31, shared/alerts.css.scss */
+  .alert > p {
+    margin: 0; }
+  /* line 34, shared/alerts.css.scss */
+  .alert > p + p {
+    margin-top: 10px; }
+
+/* line 39, shared/alerts.css.scss */
+.alert.info-alert {
+  color: #3A87AD;
+  background: #D9EDF7;
+  border-color: #BCE8F1; }
+  /* line 44, shared/alerts.css.scss */
+  .alert.info-alert > .close {
+    color: #3A87AD; }

@@ -1,0 +1,189 @@
+/* line 18, sections/feed.css.scss */
+section.feed article {
+  padding: 17px 0 16px 0;
+  background: url(/images/patterns/spaced-dotted.png) 0 0 repeat-x; }
+  /* line 22, sections/feed.css.scss */
+  section.feed article:first-child {
+    background: none; }
+  /* line 28, sections/feed.css.scss */
+  section.feed article > ul.meta {
+    margin: -6px 0 0 0;
+    font-size: 12px;
+    font-weight: 300;
+    color: #bbb; }
+    /* line 35, sections/feed.css.scss */
+    section.feed article > ul.meta li {
+      list-style-type: none;
+      display: inline-block;
+      margin: 0 10px 0 0; }
+    /* line 41, sections/feed.css.scss */
+    section.feed article > ul.meta li.give-star {
+      margin-right: 7px; }
+    /* line 45, sections/feed.css.scss */
+    section.feed article > ul.meta a.comment, section.feed article > ul.meta a.delete {
+      font-weight: bold; }
+    /* line 48, sections/feed.css.scss */
+    section.feed article > ul.meta a.delete {
+      color: #EE0000; }
+    /* line 51, sections/feed.css.scss */
+    section.feed article > ul.meta a.location {
+      color: #888;
+      font-style: italic; }
+  /* line 57, sections/feed.css.scss */
+  section.feed article h3 a.username {
+    border: none; }
+  /* line 64, sections/feed.css.scss */
+  section.feed article.project-update, section.feed article.comment {
+    padding-left: 60px; }
+    /* line 67, sections/feed.css.scss */
+    section.feed article.project-update .avatar img, section.feed article.comment .avatar img {
+      float: left;
+      margin-left: -60px;
+      border-radius: 3px; }
+    /* line 74, sections/feed.css.scss */
+    section.feed article.project-update h3.who, section.feed article.comment h3.who {
+      margin: -4px 0 -10px 0;
+      font-size: 16px; }
+    /* line 79, sections/feed.css.scss */
+    section.feed article.project-update .image, section.feed article.comment .image {
+      text-align: center;
+      margin: 15px 0;
+      padding: 2px;
+      line-height: 0;
+      background: url(/images/main/checkbg.png);
+      border: 1px solid #ddd;
+      min-height: 119px; }
+      /* line 88, sections/feed.css.scss */
+      section.feed article.project-update .image .location-map, section.feed article.comment .image .location-map {
+        cursor: pointer;
+        position: absolute;
+        display: none; }
+  /* line 96, sections/feed.css.scss */
+  section.feed article.empty-update {
+    color: #999; }
+    /* line 99, sections/feed.css.scss */
+    section.feed article.empty-update .avatar img {
+      opacity: 0.6; }
+    /* line 103, sections/feed.css.scss */
+    section.feed article.empty-update h3.who {
+      opacity: 0.5; }
+    /* line 107, sections/feed.css.scss */
+    section.feed article.empty-update > ul.meta {
+      margin: -12px 0 0 0; }
+  /* line 115, sections/feed.css.scss */
+  section.feed article.star h3 {
+    margin: 0 0 -10px 0;
+    font-size: 11px;
+    font-weight: normal;
+    color: #888; }
+    /* line 122, sections/feed.css.scss */
+    section.feed article.star h3 .star {
+      color: #ffba00; }
+    /* line 126, sections/feed.css.scss */
+    section.feed article.star h3 a {
+      color: #888; }
+  /* line 136, sections/feed.css.scss */
+  section.feed article.idea, section.feed article.project {
+    padding-left: 60px; }
+    /* line 139, sections/feed.css.scss */
+    section.feed article.idea .icon, section.feed article.project .icon {
+      float: left;
+      width: 48px;
+      height: 55px;
+      margin-top: 5px;
+      margin-left: -60px;
+      background: url(/images/ideas/activity-icon.png) 0 0 no-repeat; }
+    /* line 150, sections/feed.css.scss */
+    section.feed article.idea h3, section.feed article.project h3 {
+      margin: 0 0 -10px 0;
+      font-size: 11px;
+      font-weight: normal;
+      color: #888; }
+      /* line 157, sections/feed.css.scss */
+      section.feed article.idea h3 a, section.feed article.project h3 a {
+        color: #888; }
+    /* line 163, sections/feed.css.scss */
+    section.feed article.idea h2, section.feed article.project h2 {
+      margin: 12px 0 -10px 0;
+      font-size: 16px;
+      color: #000; }
+      /* line 168, sections/feed.css.scss */
+      section.feed article.idea h2 a, section.feed article.project h2 a {
+        color: #000; }
+    /* line 171, sections/feed.css.scss */
+    section.feed article.idea .excerpt, section.feed article.project .excerpt {
+      margin-bottom: 15px;
+      height: 4.6em;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    /* line 179, sections/feed.css.scss */
+    section.feed article.idea img, section.feed article.project img {
+      max-width: 100%; }
+  /* line 189, sections/feed.css.scss */
+  section.feed article.idea-edit h3 {
+    margin: 0 0 -10px 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #888; }
+    /* line 196, sections/feed.css.scss */
+    section.feed article.idea-edit h3 a {
+      color: #888; }
+/* line 207, sections/feed.css.scss */
+section.feed ol.commits {
+  margin: 15px 0;
+  font-size: 13px;
+  font-weight: 300;
+  color: #777673;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  border-bottom-color: #ddd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+  /* line 219, sections/feed.css.scss */
+  section.feed ol.commits > li {
+    list-style-type: none;
+    margin: 0;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #fff;
+    background: #fffdf2; }
+    /* line 228, sections/feed.css.scss */
+    section.feed ol.commits > li .commit-link {
+      float: right;
+      font-family: "Inconsolata", "Menlo", monospace; }
+    /* line 233, sections/feed.css.scss */
+    section.feed ol.commits > li .avatar img {
+      vertical-align: middle;
+      margin-top: -2px;
+      border-radius: 2px; }
+    /* line 239, sections/feed.css.scss */
+    section.feed ol.commits > li a.username {
+      border-bottom: none; }
+  /* line 243, sections/feed.css.scss */
+  section.feed ol.commits > li:first-child {
+    border-top: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px; }
+  /* line 248, sections/feed.css.scss */
+  section.feed ol.commits > li:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px; }
+/* line 258, sections/feed.css.scss */
+section.feed .compact-comment {
+  margin-top: 15px;
+  padding: 0 10px;
+  overflow: auto;
+  font-size: 11.5px;
+  border: 1px solid #dde3e3;
+  background: #f3f6f6; }
+  /* line 267, sections/feed.css.scss */
+  section.feed .compact-comment p.meta {
+    margin: 10px 0 -10px 0;
+    color: #999; }
+    /* line 271, sections/feed.css.scss */
+    section.feed .compact-comment p.meta a.username {
+      border-bottom: none; }
+/* line 274, sections/feed.css.scss */
+section.feed .compact-comment + .compact-comment {
+  margin-top: 0;
+  border-top: none; }

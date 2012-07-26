@@ -1,0 +1,148 @@
+/* line 8, shared/editor.css.scss */
+.write-post, .write-comment {
+  margin: 0 0 15px 0;
+  display: inline-block;
+  display: block; }
+  /* line 28, _globals.css.scss */
+  .write-post:after, .write-comment:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  /* line 12, shared/editor.css.scss */
+  .write-post form, .write-comment form {
+    line-height: 1px; }
+  /* line 14, shared/editor.css.scss */
+  .write-post textarea.editor, .write-comment textarea.editor {
+    width: 652px;
+    height: 60px;
+    padding: 8px;
+    font-family: "Helvetica Neue", Helvetica;
+    font-size: 12px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e5e5;
+    border-bottom-color: #eee; }
+  /* line 27, shared/editor.css.scss */
+  .write-post ul.post-attributes, .write-comment ul.post-attributes {
+    margin: 0;
+    overflow: auto;
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-top: none; }
+    /* line 35, shared/editor.css.scss */
+    .write-post ul.post-attributes a, .write-comment ul.post-attributes a {
+      color: #bbb;
+      font-size: 16px; }
+      /* line 39, shared/editor.css.scss */
+      .write-post ul.post-attributes a:hover, .write-comment ul.post-attributes a:hover {
+        color: #0095ca;
+        text-decoration: none; }
+      /* line 44, shared/editor.css.scss */
+      .write-post ul.post-attributes a.selected, .write-comment ul.post-attributes a.selected {
+        color: #74bb5a; }
+    /* line 49, shared/editor.css.scss */
+    .write-post ul.post-attributes li, .write-comment ul.post-attributes li {
+      list-style-type: none;
+      float: left;
+      margin: 0;
+      height: 24px;
+      padding: 0 7px;
+      line-height: 24px;
+      font-size: 11px;
+      color: #999;
+      border-right: 1px solid #fff;
+      border-left: 1px solid #eee; }
+      /* line 63, shared/editor.css.scss */
+      .write-post ul.post-attributes li:first-child, .write-comment ul.post-attributes li:first-child {
+        border-left: none; }
+      /* line 64, shared/editor.css.scss */
+      .write-post ul.post-attributes li:last-child, .write-comment ul.post-attributes li:last-child {
+        border-right: none; }
+    /* line 67, shared/editor.css.scss */
+    .write-post ul.post-attributes li.post-location, .write-comment ul.post-attributes li.post-location {
+      border-right: none; }
+    /* line 70, shared/editor.css.scss */
+    .write-post ul.post-attributes li.last-location, .write-comment ul.post-attributes li.last-location {
+      float: right;
+      border: none; }
+      /* line 74, shared/editor.css.scss */
+      .write-post ul.post-attributes li.last-location strong, .write-comment ul.post-attributes li.last-location strong {
+        font-weight: normal;
+        color: #666; }
+    /* line 80, shared/editor.css.scss */
+    .write-post ul.post-attributes .location-name, .write-comment ul.post-attributes .location-name {
+      position: relative;
+      top: -1px;
+      left: 5px; }
+    /* line 85, shared/editor.css.scss */
+    .write-post ul.post-attributes .location-name.error, .write-comment ul.post-attributes .location-name.error {
+      font-weight: bold;
+      color: #cc0000; }
+  /* line 91, shared/editor.css.scss */
+  .write-post button, .write-comment button {
+    margin-top: 10px;
+    margin-right: 10px;
+    float: left; }
+  /* line 96, shared/editor.css.scss */
+  .write-post button.secondary, .write-comment button.secondary {
+    margin-right: 0;
+    float: right; }
+  /* line 100, shared/editor.css.scss */
+  .write-post button.fixed, .write-comment button.fixed {
+    width: 120px; }
+  /* line 104, shared/editor.css.scss */
+  .write-post ul.post-types, .write-comment ul.post-types {
+    float: right;
+    margin: 15px 0 0 0; }
+    /* line 108, shared/editor.css.scss */
+    .write-post ul.post-types li, .write-comment ul.post-types li {
+      list-style-type: none;
+      float: left;
+      margin: 0 0 0 15px; }
+      /* line 113, shared/editor.css.scss */
+      .write-post ul.post-types li a, .write-comment ul.post-types li a {
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: none; }
+      /* line 118, shared/editor.css.scss */
+      .write-post ul.post-types li a.selected, .write-comment ul.post-types li a.selected {
+        color: #000;
+        cursor: default; }
+
+/* line 126, shared/editor.css.scss */
+.active-only {
+  display: none; }
+
+/* line 131, shared/editor.css.scss */
+.active .active-only {
+  display: block; }
+/* line 134, shared/editor.css.scss */
+.active .inactive-only {
+  display: none; }
+
+/* line 143, shared/editor.css.scss */
+.write-comment {
+  margin: 15px 0 0 0;
+  padding: 5px;
+  border: 1px solid #dde3e3;
+  background: #f3f6f6; }
+  /* line 150, shared/editor.css.scss */
+  .write-comment textarea.editor {
+    width: 581px;
+    height: 30px;
+    font-size: 11px;
+    border-color: #ddd; }
+  /* line 157, shared/editor.css.scss */
+  .write-comment button {
+    margin-top: 5px; }
+  /* line 164, shared/editor.css.scss */
+  .expandable-comment-form .write-comment {
+    margin-top: 0;
+    border-top: none; }
+  /* line 169, shared/editor.css.scss */
+  .expandable-comment-form.collapsed .write-comment textarea.editor {
+    height: 12px; }
+  /* line 173, shared/editor.css.scss */
+  .expandable-comment-form.collapsed .write-comment button {
+    display: none; }

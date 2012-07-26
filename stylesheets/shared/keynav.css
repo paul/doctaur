@@ -1,0 +1,15 @@
+/* line 3, shared/keynav.css.scss */
+.keynav {
+  position: relative;
+  float: right;
+  width: 670px;
+  padding-left: 9px;
+  border-left: 1px solid #eee; }
+  /* line 10, shared/keynav.css.scss */
+  .keynav .keynav-indicator {
+    position: absolute;
+    width: 2px;
+    left: -2px;
+    top: 0;
+    height: 0;
+    background: #65829b; }
