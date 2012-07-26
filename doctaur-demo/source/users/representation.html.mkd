@@ -3,7 +3,7 @@ title: Representation
 category: users
 ---
 
-## Representaion
+## Representation
 
 ### GitHub API v3
 

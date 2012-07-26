@@ -21,11 +21,25 @@ module DocHelpers
     pages_by_category
   end
 
+  def pages_for_quick_ref
+    pages_for_quick_ref = {}
+
+    sitemap.resources.group_by { |page| page.data["category"] }.each do |category, pages|
+      next if category.nil? # Skip pages that don't have "category" metadata
+      next if category == "summary"
+      pages_for_quick_ref[category] = sort_pages(pages).select { |p| p.path !~ /index/ && p.path !~ /representation/ }
+    end
+
+    pages_for_quick_ref
+
+  end
+
   HTTP_METHOD_SORT_ORDER = %w[GET POST PUT PATCH DELETE]
 
 
   def sort_pages(pages)
     pages.sort_by do |page|
+      [ page.data["category"],
       if page.path =~ /index/
         # Index always comes first
         -10
@@ -40,8 +54,12 @@ module DocHelpers
 
       else
         # Otherwise, guess by url length and http method
-        page.data["endpoint"].length * 10 + HTTP_METHOD_SORT_ORDER.index(page.data["method"])
+        endpoint = page.data["endpoint"].length
+        method   = HTTP_METHOD_SORT_ORDER.index(page.data["method"] || page.data["methods"].first)
+
+        endpoint * 10 + method
       end
+    ]
 
     end
   end

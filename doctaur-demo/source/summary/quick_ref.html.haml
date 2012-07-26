@@ -1,0 +1,31 @@
+---
+title: Quick Reference
+sort_order: 2
+category: summary
+---
+
+%h1 Quick Reference
+
+- pages_for_quick_ref.each do |category, pages|
+
+  %h2
+    = link_to category.titlecase, "##{category}"
+
+  %table.quickref
+    %thead
+      %tr
+        %th Usage
+        %th Supported Methods
+        %th URL
+
+    %tbody
+      - pages.each do |page|
+        %tr
+          %td.usage
+            = link_to page.data["title"], "##{page.data["title"].underscore.gsub(' ', '_')}"
+          %td.method
+            = page.data["method"] || page.data["methods"].join(', ')
+          %td.url
+            = page.data["endpoint"]
+
+

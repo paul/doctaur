@@ -1,7 +1,7 @@
 ---
 title: Update current user
 endpoint: /user
-method: PUT
+methods: [PUT, PATCH]
 category: users
 ---
 
