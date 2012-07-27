@@ -80,3 +80,8 @@ require "active_support/core_ext/string/inflections"
 
 require "lib/doc_helpers"
 helpers DocHelpers
+
+require "lib/doctaur"
+activate Doctaur
+
+ignore "templates/*"

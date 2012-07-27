@@ -1,0 +1,31 @@
+---
+category: users
+title: "Representation"
+---
+
+represent :user, with: :githubv3 do
+
+  attributes do
+    login      :string,  "The login name for the user"
+    name       :string,  "The user's meatspace name"
+    last_login :iso8601, "Date and time of the user's last login to github.com"
+  end
+
+  links do
+    organizations_href :organization,
+                       "[Organizations](#organization) of which this user is a public member"
+
+    emails_href        :email,
+                       "The public [emails](#mail) registered to this user"
+
+    ssh_keys           :key,
+                       "Public [SSH keys](#ssh_key) for this user"
+  end
+
+  example do
+    "https://api.github.com/users/paul"
+  end
+end
+
+
+# vim: ft=ruby

@@ -1,0 +1,31 @@
+%h2 Representation
+
+%h3 Attributes
+%dl.attributes
+  - attributes.each do |attr|
+    %dt= attr[0]
+    %dd.tags
+      %ul
+        - attr[1].each do |tag|
+          %li= tag
+    %dd= attr[2]
+
+%h3 Links
+%dl.attributes.links
+  - links.each do |attr|
+    %dt= attr[0]
+    %dd.tags
+      %ul
+        - attr[1].each do |tag|
+          %li= tag
+    %dd= attr[2]
+
+%h3 Example
+
+%pre
+  %code
+    = example
+
+
+
+
