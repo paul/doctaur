@@ -1,0 +1,14 @@
+---
+    sort_order: 1
+    title: Mime Type
+---
+
+# Mime Type
+
+The GitHub API uses a vendor-specific mime type for web service requests and responses.
+
+    application/vnd.github.v3+json
+
+We also accept the common `application/json` as an alias, but strongly discourage its use. It will always be mapped to the latest version of the API. If we upgrade the API at some point in the future, and you are relying on the previous version, bad things will probably happen.
+
+

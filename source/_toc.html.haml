@@ -2,7 +2,7 @@
 %h1 Table of Contents
 
 %ul.categories
-  - pages_by_category.each do |category, pages|
+  - pages_for_toc.each do |category, pages|
     %li.category
       = link_to category.titlecase, "##{category}"
 
@@ -10,4 +10,4 @@
       %ul.pages
         - pages.each do |page|
           %li.page
-            = link_to page.data["title"], "##{page.data["title"].underscore.gsub(' ', '_')}"
+            = link_to page.title, "##{page.anchor}"

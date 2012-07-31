@@ -1,8 +1,3 @@
----
-title: User
-category: users
----
-
 # User
 
 A **User** represents a person or automated actor on GitHub. They may own and

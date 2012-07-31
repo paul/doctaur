@@ -19,6 +19,7 @@ GEM
     fattr (2.2.1)
     ffi (1.1.0)
     fssm (0.2.9)
+    github-markdown (0.5.0)
     haml (3.1.6)
     hike (1.2.1)
     http_router (0.10.2)
@@ -116,5 +117,6 @@ PLATFORMS
 DEPENDENCIES
   activesupport (~> 3.2.0)
   awesome_print
+  github-markdown
   middleman (~> 3.0.0)
   prissy

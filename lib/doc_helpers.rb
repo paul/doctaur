@@ -10,11 +10,11 @@ module DocHelpers
     end
   end
 
-  def pages_by_category
-
+  def pages_for_toc
     pages_by_category = {}
-    sitemap.resources.group_by { |page| page.data["category"] }.each do |category, pages|
+    group_by_sorted_category(all_pages).each do |category, pages|
       next if category.nil? # Skip pages that don't have "category" metadata
+      next if category == "."
       pages_by_category[category] = sort_pages(pages).select { |p| p.path !~ /index/ }
     end
 
@@ -24,9 +24,10 @@ module DocHelpers
   def pages_for_quick_ref
     pages_for_quick_ref = {}
 
-    sitemap.resources.group_by { |page| page.data["category"] }.each do |category, pages|
+    group_by_sorted_category(all_pages).each do |category, pages|
       next if category.nil? # Skip pages that don't have "category" metadata
-      next if category == "summary"
+      next if category == "summary" # Skip the summary pages in the quick reference
+      next if category == "."
       pages_for_quick_ref[category] = sort_pages(pages).select { |p| p.path !~ /index/ && p.path !~ /representation/ }
     end
 
@@ -36,15 +37,36 @@ module DocHelpers
 
   HTTP_METHOD_SORT_ORDER = %w[GET POST PUT PATCH DELETE]
 
+  def group_by_sorted_category(pages)
+    pages_by_category = {}
+
+    pages.each do |page|
+      category = page_category(page)
+      next if category.nil?
+      pages_by_category[category] ||= []
+      pages_by_category[category] << page
+    end
+
+    sorted = pages_by_category.sort_by do |key, value|
+      key..to_s == "summary" ? -1 : key
+    end
+
+    Hash[sorted]
+  end
+
 
   def sort_pages(pages)
     pages.sort_by do |page|
-      [ page.data["category"],
-      if page.path =~ /index/
+      filepath, filename = File.split(page.path)
+      category = filepath.split(File::Separator).last
+
+      # First, order by category
+      res = [ category,
+      if filename =~ /index/
         # Index always comes first
         -10
 
-      elsif page.path =~ /representation/
+      elsif filename =~ /representation/
         # Representation comes next
         -5
 
@@ -52,16 +74,27 @@ module DocHelpers
         # If the page metadata specifies a sort order, do that
         page.data["sort_order"]
 
-      else
-        # Otherwise, guess by url length and http method
+      elsif page.data["endpoint"]
+        # url length and http method
         endpoint = page.data["endpoint"].length
         method   = HTTP_METHOD_SORT_ORDER.index(page.data["method"] || page.data["methods"].first)
 
         endpoint * 10 + method
+
+      else
+	# Otherwise, alphabetic by filename
+	filename.to_i
       end
     ]
 
+    p res
+    res
+
     end
+  end
+
+  def page_category(page)
+    File.split(page.path).first.split(File::Separator).last
   end
 end
 

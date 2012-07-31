@@ -7,6 +7,12 @@ module Doctaur
 	template_extensions :doctaur => :html
       end
 
+      app.after_configuration do
+	sitemap.register_resource_list_manipulator(:representations,
+						   Doctaur::RepresentationManipulator.new(self),
+						   false)
+      end
+
       app.helpers Doctaur::Helpers
     end
     alias included registered
@@ -32,6 +38,53 @@ module Doctaur
       representation = Doctaur::Representation.new(name, options, &block)
 
       render_individual_file "/templates/representation.html.haml", representation.locals
+    end
+
+  end
+
+  class RepresentationManipulator
+
+    def initialize(app)
+      @app = app
+    end
+
+    def manipulate_resource_list(resources)
+      resources.each do |resource|
+	resource.extend PageExtensions
+
+	if resource.source_file =~ /doctaur$/
+	  resource.extend RepresentationResource
+	end
+
+	category = File.split(resource.path).first.split(File::Separator).last
+	resource.add_metadata(page: {category: category}) if category
+      end
+    end
+  end
+
+  module PageExtensions
+    def title
+      data["title"]
+    end
+
+    def anchor
+      data["title"].underscore
+    end
+
+    def category
+      # foo/bar/baz.html.mkd #-> "bar"
+      data["category"] || File.split(path).first.split(File::Separator).last
+    end
+  end
+
+  module RepresentationResource
+
+    def title
+      "Representation"
+    end
+
+    def anchor
+      "#{category}_representation"
     end
 
   end
@@ -79,7 +132,8 @@ module Doctaur
 	:name => name,
 	:attributes => attributes,
 	:links => links,
-	:example => example
+	:example => example,
+	:anchor => anchor
       }
     end
 

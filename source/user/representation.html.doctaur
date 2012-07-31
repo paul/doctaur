@@ -1,7 +1,3 @@
----
-category: users
-title: "Representation"
----
 
 represent :user, with: :githubv3 do
 
