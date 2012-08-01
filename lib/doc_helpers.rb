@@ -28,7 +28,7 @@ module DocHelpers
       next if category.nil? # Skip pages that don't have "category" metadata
       next if category == "summary" # Skip the summary pages in the quick reference
       next if category == "."
-      pages_for_quick_ref[category] = sort_pages(pages).select { |p| p.path !~ /index/ && p.path !~ /representation/ }
+      pages_for_quick_ref[category] = sort_pages(pages).select { |p| p.is_a? Doctaur::ApiResource }
     end
 
     pages_for_quick_ref
@@ -61,7 +61,7 @@ module DocHelpers
       category = filepath.split(File::Separator).last
 
       # First, order by category
-      res = [ category,
+      [ category,
       if filename =~ /index/
         # Index always comes first
         -10
@@ -86,9 +86,6 @@ module DocHelpers
 	filename.to_i
       end
     ]
-
-    p res
-    res
 
     end
   end

@@ -8,8 +8,8 @@ module Doctaur
       end
 
       app.after_configuration do
-	sitemap.register_resource_list_manipulator(:representations,
-						   Doctaur::RepresentationManipulator.new(self),
+	sitemap.register_resource_list_manipulator(:doctaur,
+						   Doctaur::Manipulator.new(self),
 						   false)
       end
 
@@ -37,12 +37,12 @@ module Doctaur
     def represent(name, options = {}, &block)
       representation = Doctaur::Representation.new(name, options, &block)
 
-      render_individual_file "/templates/representation.html.haml", representation.locals
+      partial "templates/representation", locals: {representation: representation}
     end
 
   end
 
-  class RepresentationManipulator
+  class Manipulator
 
     def initialize(app)
       @app = app
@@ -50,16 +50,23 @@ module Doctaur
 
     def manipulate_resource_list(resources)
       resources.each do |resource|
+        next unless resource.mime_type =~ /text\/html/
+
 	resource.extend PageExtensions
 
 	if resource.source_file =~ /doctaur$/
-	  resource.extend RepresentationResource
+          if resource.source_file =~ /representation/
+            resource.extend RepresentationResource
+          else
+            resource.extend ApiResource
+          end
 	end
 
 	category = File.split(resource.path).first.split(File::Separator).last
 	resource.add_metadata(page: {category: category}) if category
       end
     end
+
   end
 
   module PageExtensions
@@ -67,13 +74,13 @@ module Doctaur
       data["title"]
     end
 
-    def anchor
-      data["title"].underscore
-    end
-
     def category
       # foo/bar/baz.html.mkd #-> "bar"
       data["category"] || File.split(path).first.split(File::Separator).last
+    end
+
+    def anchor
+      title.underscore if title
     end
   end
 
@@ -85,6 +92,18 @@ module Doctaur
 
     def anchor
       "#{category}_representation"
+    end
+
+    def render(options = {}, locals = {}, &block)
+
+    end
+
+  end
+
+  module ApiResource
+
+    def endpoint
+
     end
 
   end
@@ -133,7 +152,7 @@ module Doctaur
 	:attributes => attributes,
 	:links => links,
 	:example => example,
-	:anchor => anchor
+        :anchor => "#{name}_representation"
       }
     end
 

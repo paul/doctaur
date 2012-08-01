@@ -1,0 +1,27 @@
+
+api :get, "/user" do
+
+  title "Retrieve current user"
+  representation :user, :v3
+
+  requires :authentiction
+
+  desc <<-DESC
+    Retrives public data for the currently logged in user.
+  DESC
+
+  example :curl, <<-EX
+    curl -H "Authentication: token {{token}}" https://api.github.com/user
+  EX
+
+  example :ruby, <<-EX
+    @github.current_user
+  EX
+
+
+
+
+
+end
+
+# vim: ft=ruby

@@ -4,6 +4,7 @@ sort_order: 2
 ---
 
 %h1 Quick Reference
+- p "Rendering Quick Reference"
 
 - pages_for_quick_ref.each do |category, pages|
 
@@ -19,12 +20,13 @@ sort_order: 2
 
     %tbody
       - pages.each do |page|
+        - p page.path
         %tr
           %td.usage
-            = link_to page.data["title"], "##{page.data["title"].underscore.gsub(' ', '_')}"
+            = link_to page.title, page.anchor
           %td.method
-            = page.data["method"] || page.data["methods"].join(', ')
+            = page.methods
           %td.url
-            = page.data["endpoint"]
+            = page.endpoint
 
 
