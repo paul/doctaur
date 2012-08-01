@@ -3,7 +3,7 @@
     title: Mime Type
 ---
 
-# Mime Type
+# Content Type
 
 The GitHub API uses a vendor-specific mime type for web service requests and responses.
 

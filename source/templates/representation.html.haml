@@ -1,8 +1,8 @@
-%h2{anchor: anchor} Representation
+%h2{id: rep.anchor} Representation
 
 %h3 Attributes
 %dl.attributes
-  - attributes.each do |attr|
+  - rep.attributes.each do |attr|
     %dt= attr[0]
     %dd.tags
       %ul
@@ -12,7 +12,7 @@
 
 %h3 Links
 %dl.attributes.links
-  - links.each do |attr|
+  - rep.links.each do |attr|
     %dt= attr[0]
     %dd.tags
       %ul
@@ -24,7 +24,7 @@
 
 %pre
   %code
-    = example
+    = rep.example
 
 
 

@@ -4,7 +4,6 @@ sort_order: 2
 ---
 
 %h1 Quick Reference
-- p "Rendering Quick Reference"
 
 - pages_for_quick_ref.each do |category, pages|
 
@@ -20,12 +19,11 @@ sort_order: 2
 
     %tbody
       - pages.each do |page|
-        - p page.path
         %tr
           %td.usage
-            = link_to page.title, page.anchor
+            = link_to page.title, "##{page.anchor}"
           %td.method
-            = page.methods
+            = page.methods.map{|m| m.to_s.upcase}.join(', ')
           %td.url
             = page.endpoint
 

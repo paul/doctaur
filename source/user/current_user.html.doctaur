@@ -4,7 +4,7 @@ api :get, "/user" do |api|
   api.title = "Retrieve current user"
   api.response_content = :user
 
-  api.requires :authentiction
+  api.requires :authentication
 
   api.desc = <<-DESC
     Retrives public data for the currently logged in user.

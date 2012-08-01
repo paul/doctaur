@@ -37,11 +37,11 @@ module Doctaur
     def represent(name, options = {}, &block)
       representation = Doctaur::Representation.new(name, options, &block)
 
-      partial "templates/representation", locals: {representation: representation}
+      partial "templates/representation", locals: {rep: representation}
     end
 
     def api(method, endpoint, &block)
-      api = Doctaur::Api.new(method, endpoint, &block)
+      api = Doctaur::Api.new(self, method, endpoint, &block)
     end
 
   end
@@ -106,8 +106,20 @@ module Doctaur
       api.title
     end
 
+    def endpoint
+      api.endpoint
+    end
+
     def api
       @api = render layout: false
+    end
+
+    def anchor
+      api.anchor
+    end
+
+    def methods
+      api.methods
     end
 
   end
@@ -120,6 +132,10 @@ module Doctaur
       @options = options
 
       instance_eval &block
+    end
+
+    def anchor
+      "#{name}-representation"
     end
 
     def attributes(&block)
@@ -193,22 +209,49 @@ module Doctaur
   end
 
   class Api
-    attr_reader :endpoint, :method, :requirements
-    attr_accessor :title, :response_content, :desc
+    attr_reader :endpoint, :method, :requirements, :examples, :methods
+    attr_accessor :title, :request_content, :response_content, :desc
 
-    def initialize(method, endpoint, &block)
+    def initialize(app, method, endpoint, &block)
+      @app = app
       @method = method
       @endpoint = endpoint
+      @requirements = []
+      @methods = Array.wrap(@method)
+      @examples = []
       yield self
     end
 
+    def anchor
+      title.parameterize
+    end
+
     def requires(*tags)
-      @requirements ||= []
       @requirements.push *tags
     end
 
-    def example(flavor, code)
+    def requires?(tag)
+      @requirements.include? tag
+    end
 
+    def example(flavor, code)
+      @examples.push Example.new flavor, code
+    end
+
+    def to_s
+      @app.partial("templates/api", locals: {api: self})
+    end
+
+    class Example
+      attr_reader :flavor, :code
+
+      def initialize(flavor, code)
+        @flavor, @code = flavor, code
+      end
+
+      def title
+        flavor.to_s.titlecase
+      end
     end
 
 

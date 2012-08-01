@@ -1,0 +1,24 @@
+%h2{id: api.anchor}= api.title
+
+%pre
+  %code
+    = "#{api.method.upcase} #{api.endpoint}"
+
+= api.desc
+
+%h3 Response
+
+
+
+%h3 Examples
+
+- if api.requires? :authentication
+  %p.alert Requires authentication
+
+- api.examples.each do |example|
+  %div{class: example.flavor}
+    %h4= example.title
+
+    %pre{class: example.flavor}
+      %code
+        = example.code.strip

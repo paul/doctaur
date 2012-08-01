@@ -1,7 +1,7 @@
 module DocHelpers
 
   def render_inline(pages)
-    sort_pages(pages).map { |page| render_individual_file(page.source_file) }.join
+    sort_pages(pages).map { |page| page.render(layout: false) }.join
   end
 
   def all_pages
@@ -26,7 +26,7 @@ module DocHelpers
 
     group_by_sorted_category(all_pages).each do |category, pages|
       next if category.nil? # Skip pages that don't have "category" metadata
-      next if category == "summary" # Skip the summary pages in the quick reference
+      next if category == "general" # Skip the summary pages in the quick reference
       next if category == "."
       pages_for_quick_ref[category] = sort_pages(pages).select { |p| p.is_a? Doctaur::ApiResource }
     end
