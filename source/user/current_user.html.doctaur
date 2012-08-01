@@ -1,26 +1,22 @@
 
-api :get, "/user" do
+api :get, "/user" do |api|
 
-  title "Retrieve current user"
-  representation :user, :v3
+  api.title = "Retrieve current user"
+  api.response_content = :user
 
-  requires :authentiction
+  api.requires :authentiction
 
-  desc <<-DESC
+  api.desc = <<-DESC
     Retrives public data for the currently logged in user.
   DESC
 
-  example :curl, <<-EX
+  api.example :curl, <<-EX
     curl -H "Authentication: token {{token}}" https://api.github.com/user
   EX
 
-  example :ruby, <<-EX
+  api.example :ruby, <<-EX
     @github.current_user
   EX
-
-
-
-
 
 end
 

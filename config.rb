@@ -39,5 +39,4 @@ require "lib/doctaur"
 activate Doctaur
 
 ignore "templates/*"
-ignore "**/*.doctaur"
 

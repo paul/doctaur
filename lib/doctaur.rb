@@ -40,6 +40,10 @@ module Doctaur
       partial "templates/representation", locals: {representation: representation}
     end
 
+    def api(method, endpoint, &block)
+      api = Doctaur::Api.new(method, endpoint, &block)
+    end
+
   end
 
   class Manipulator
@@ -80,7 +84,7 @@ module Doctaur
     end
 
     def anchor
-      title.underscore if title
+      title.parameterize
     end
   end
 
@@ -91,19 +95,19 @@ module Doctaur
     end
 
     def anchor
-      "#{category}_representation"
-    end
-
-    def render(options = {}, locals = {}, &block)
-
+      "#{category}-representation"
     end
 
   end
 
   module ApiResource
 
-    def endpoint
+    def title
+      api.title
+    end
 
+    def api
+      @api = render layout: false
     end
 
   end
@@ -186,6 +190,28 @@ module Doctaur
       end
 
     end
+  end
+
+  class Api
+    attr_reader :endpoint, :method, :requirements
+    attr_accessor :title, :response_content, :desc
+
+    def initialize(method, endpoint, &block)
+      @method = method
+      @endpoint = endpoint
+      yield self
+    end
+
+    def requires(*tags)
+      @requirements ||= []
+      @requirements.push *tags
+    end
+
+    def example(flavor, code)
+
+    end
+
+
   end
 end
 

@@ -2,7 +2,7 @@
 title: Update current user
 endpoint: /user
 methods: [PUT, PATCH]
-category: users
+
 ---
 
 # Update the currently authenticated user

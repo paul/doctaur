@@ -48,7 +48,7 @@ module DocHelpers
     end
 
     sorted = pages_by_category.sort_by do |key, value|
-      key..to_s == "summary" ? -1 : key
+      key..to_s == "overview" ? -1 : key
     end
 
     Hash[sorted]
