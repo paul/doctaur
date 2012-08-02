@@ -1,5 +1,5 @@
 ---
-    title: "Retrieve current user"
+    title: "Retrieve the current user"
     endpoint: /user
     method: GET
     requires_auth: true

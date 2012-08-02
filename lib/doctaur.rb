@@ -135,7 +135,7 @@ module Doctaur
     end
 
     def methods
-      data["http_methods"] || Array.wrap(data["method"])
+      data["methods"] || Array.wrap(data["method"])
     end
 
     def requires_auth?
