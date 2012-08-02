@@ -1,0 +1,21 @@
+---
+    title: "Fetch user by login"
+    endpoint: /users/{login}
+    method: GET
+    response: user
+---
+
+To lookup a particular user's public profile data, you can find them by their login name.
+
+```bash
+curl -H "Accept: application/vnd.github.v3+json" \
+     https://api.github.com/users/paul
+```
+
+```ruby
+@github = GitHub::Client.new(token)
+@github.current_user
+```
+
+
+

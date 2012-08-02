@@ -1,0 +1,21 @@
+---
+    title: "Update current user"
+    endpoint: /user
+    methods: [POST, PATCH]
+    requires_auth: true
+    response: user
+---
+
+To update your user profile data, you can `PUT` (or `PATCH`) some the [user](#user) attributes you want modified.
+
+```bash
+curl -u "paul:{{password}}" \
+     -H "Accept: application/vnd.github.v3+json" \
+     -H "Content-Type: application/vnd.github.v3+json" \
+     -d '{"bio": "The GitHub API Dude"}' \
+     -v \
+     https://api.github.com/user
+```
+
+The API will return 200 OK and the updated [user](#user) in the response body, or an [error][#errors] if there was a problem.
+

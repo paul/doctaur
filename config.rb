@@ -1,6 +1,4 @@
 
-set :markdown_engine, :github_markup
-
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
@@ -37,6 +35,7 @@ helpers DocHelpers
 
 require "lib/doctaur"
 activate Doctaur
+set :markdown_engine, Doctaur::GitHubMarkdown
 
 ignore "templates/*"
 

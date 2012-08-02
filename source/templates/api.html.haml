@@ -2,23 +2,10 @@
 
 %pre
   %code
-    = "#{api.method.upcase} #{api.endpoint}"
+    - api.methods.each do |method|
+      = "#{method.to_s.upcase} #{api.endpoint}"
 
-= api.desc
-
-%h3 Response
-
-
-
-%h3 Examples
-
-- if api.requires? :authentication
+- if api.requires_auth?
   %p.alert Requires authentication
 
-- api.examples.each do |example|
-  %div{class: example.flavor}
-    %h4= example.title
-
-    %pre{class: example.flavor}
-      %code
-        = example.code.strip
+= content

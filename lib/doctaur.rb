@@ -1,7 +1,9 @@
+require 'lib/resultifier'
 module Doctaur
   class << self
     def registered(app)
       app.set :githubv3, "application/vnd.github.v3+json"
+      app.set :markdown_engine, Doctaur::GitHubMarkdown
 
       app.before_configuration do
 	template_extensions :doctaur => :html
@@ -11,11 +13,30 @@ module Doctaur
 	sitemap.register_resource_list_manipulator(:doctaur,
 						   Doctaur::Manipulator.new(self),
 						   false)
+
+        ::Tilt.register Doctaur::GitHubMarkdown, 'mkd'
+        ::Tilt.prefer   Doctaur::GitHubMarkdown
       end
 
       app.helpers Doctaur::Helpers
     end
     alias included registered
+  end
+
+  class GitHubMarkdown < Tilt::Template
+    CODE_FENCE_RE = /(\r?\n)```(\w+)\n(.+?)```(?=\r?\n)/m
+
+    def prepare
+    end
+
+    def evaluate(scope, locals, &block)
+      p data
+      code = data.gsub(CODE_FENCE_RE) do |match|
+        flavor, code = $2, $3
+        Resultifier.resultify(flavor, code)
+      end
+      @output = GitHub::Markdown.render_gfm(code)
+    end
   end
 
   class Template < Tilt::Template
@@ -40,10 +61,6 @@ module Doctaur
       partial "templates/representation", locals: {rep: representation}
     end
 
-    def api(method, endpoint, &block)
-      api = Doctaur::Api.new(self, method, endpoint, &block)
-    end
-
   end
 
   class Manipulator
@@ -59,12 +76,12 @@ module Doctaur
 	resource.extend PageExtensions
 
 	if resource.source_file =~ /doctaur$/
-          if resource.source_file =~ /representation/
-            resource.extend RepresentationResource
-          else
-            resource.extend ApiResource
-          end
+          resource.extend RepresentationResource
 	end
+
+        if resource.data.has_key?("endpoint")
+          resource.extend ApiResource
+        end
 
 	category = File.split(resource.path).first.split(File::Separator).last
 	resource.add_metadata(page: {category: category}) if category
@@ -103,11 +120,11 @@ module Doctaur
   module ApiResource
 
     def title
-      api.title
+      data["title"]
     end
 
     def endpoint
-      api.endpoint
+      data["endpoint"]
     end
 
     def api
@@ -115,11 +132,21 @@ module Doctaur
     end
 
     def anchor
-      api.anchor
+      title.parameterize
     end
 
     def methods
-      api.methods
+      data["http_methods"] || Array.wrap(data["method"])
+    end
+
+    def requires_auth?
+      data["requires_auth"]
+    end
+
+    def render(opts = {}, locals = {}, &block)
+      content = super
+
+      app.partial "templates/api", locals: {api: self, content: content}
     end
 
   end
@@ -208,53 +235,5 @@ module Doctaur
     end
   end
 
-  class Api
-    attr_reader :endpoint, :method, :requirements, :examples, :methods
-    attr_accessor :title, :request_content, :response_content, :desc
-
-    def initialize(app, method, endpoint, &block)
-      @app = app
-      @method = method
-      @endpoint = endpoint
-      @requirements = []
-      @methods = Array.wrap(@method)
-      @examples = []
-      yield self
-    end
-
-    def anchor
-      title.parameterize
-    end
-
-    def requires(*tags)
-      @requirements.push *tags
-    end
-
-    def requires?(tag)
-      @requirements.include? tag
-    end
-
-    def example(flavor, code)
-      @examples.push Example.new flavor, code
-    end
-
-    def to_s
-      @app.partial("templates/api", locals: {api: self})
-    end
-
-    class Example
-      attr_reader :flavor, :code
-
-      def initialize(flavor, code)
-        @flavor, @code = flavor, code
-      end
-
-      def title
-        flavor.to_s.titlecase
-      end
-    end
-
-
-  end
 end
 

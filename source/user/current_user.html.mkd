@@ -1,0 +1,23 @@
+---
+    title: "Retrieve current user"
+    endpoint: /user
+    method: GET
+    requires_auth: true
+    response: user
+---
+
+You can use `/user` to get the currently logged in user. This is a shortcut to `/user/{login}` for
+your particular login.
+
+```bash
+curl -u "paul:{{password}}" \
+     -H "Accept: application/vnd.github.v3+json" \
+     https://api.github.com/user
+```
+
+```ruby
+@github = GitHub::Client.new(token)
+@github.current_user
+```
+
+
