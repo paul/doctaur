@@ -30,7 +30,6 @@ module Doctaur
     end
 
     def evaluate(scope, locals, &block)
-      p data
       code = data.gsub(CODE_FENCE_RE) do |match|
         flavor, code = $2, $3
         Resultifier.resultify(flavor, code)

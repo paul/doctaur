@@ -37,7 +37,6 @@ RESULT
       end
 
       def result
-        puts subbed_code
         result = `#{subbed_code}`
       end
 

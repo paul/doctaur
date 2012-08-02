@@ -13,7 +13,6 @@ curl -u "paul:{{password}}" \
      -H "Accept: application/vnd.github.v3+json" \
      -H "Content-Type: application/vnd.github.v3+json" \
      -d '{"bio": "The GitHub API Dude"}' \
-     -v \
      https://api.github.com/user
 ```
 
