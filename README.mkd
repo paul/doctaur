@@ -1,18 +1,32 @@
 
-## Goals
+# Getting Started
 
-### Main docs in a single page
+## Run locally
+
+    middleman server
+
+## Build & upload pages
+
+    middleman build
+    cd build
+    git commit -am "regenerate pages"
+    git push
+
+
+# Goals
+
+## Main docs in a single page
 
 [Parse API](https://www.parse.com/docs/rest)
 [Blog Post explaining why on Parse API](http://blog.parse.com/2012/01/11/designing-great-api-docs/)
 
 Separate pages ok for long-form parts, like detailed multi-step tutorials, OAuth, etc...
 
-### Inline code examples for each language/library we "support"
+## Inline code examples for each language/library we "support"
 
 [Stripe's API Docs](https://stripe.com/docs/api) has a switcher at top to pick your preferred language.
 
-### Use the user's token in examples
+## Use the user's token in examples
 
 If the visitor is logged in to github.com, automatically use their username/token in the examples. We'll probably have
 to punt on several of the examples, though. Eg, `/user` would show the current user, but we don't want to have to remake
